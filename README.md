@@ -9,6 +9,7 @@
 ## 2. 공부할 것들....
 
 0. [Cube 3D 소개](https://codingmonsters.tistory.com/23)
+1. [mlx 사용법](https://codingmonsters.tistory.com/manage/newpost/?type=post&returnURL=%2Fmanage%2Fposts%2F)
 
 
 
