@@ -3,33 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: namgyupark <namgyupark@student.42.fr>      +#+  +:+       +#+        */
+/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/17 00:34:37 by mihykim           #+#    #+#             */
-/*   Updated: 2021/01/14 19:00:19 by namgyupark       ###   ########.fr       */
+/*   Created: 2021/03/13 04:14:22 by napark            #+#    #+#             */
+/*   Updated: 2021/03/13 11:35:39 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
-	int atoi;
-	int sign;
+	int					sign;
+	unsigned long int	atoi;
+	size_t				i;
 
+	i = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
 	sign = 1;
-	while (*str == '-' || *str == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign = (*str == '-') ? -sign : sign;
-		str++;
+		sign = (str[i] == '-') ? -sign : sign;
+		i++;
 	}
 	atoi = 0;
-	if (!is_set(*str, DIGIT))
-		return (0);
-	while (*str >= '0' && *str <= '9')
+	while ((str[i] >= '0' && str[i] <= '9'))
 	{
-		atoi = atoi * 10 + (*str - '0');
-		str++;
+		atoi = atoi * 10 + (str[i] - '0');
+		i++;
 	}
 	return (atoi * sign);
 }
