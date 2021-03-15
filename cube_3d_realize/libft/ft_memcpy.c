@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 16:27:21 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:31:32 by mihykim          ###   ########.fr       */
+/*   Created: 2020/02/26 05:58:04 by mihykim           #+#    #+#             */
+/*   Updated: 2020/04/03 22:02:49 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Tests for any character for which isalpha(3) or isdigit(3) is true.
-** - Returns non-zero if the character tests true,
-**   or returns zero if the character tests false.
+** - Copies 'n' bytes from memory area 'src' to memory area 'dst'.
+** - Returns the original value of 'dst'.
 */
 
-int		ft_isalnum(int c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
-		return (0);
+	size_t i;
+
+	if (dst == 0 && src == 0)
+		return (dst);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
 }

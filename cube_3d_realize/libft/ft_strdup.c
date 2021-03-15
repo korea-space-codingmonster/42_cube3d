@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 16:27:21 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:31:32 by mihykim          ###   ########.fr       */
+/*   Created: 2020/02/26 17:11:06 by mihykim           #+#    #+#             */
+/*   Updated: 2020/04/07 13:20:04 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Tests for any character for which isalpha(3) or isdigit(3) is true.
-** - Returns non-zero if the character tests true,
-**   or returns zero if the character tests false.
+** - Allocates sufficient memory for a copy of the string
+** - Does the copy
+** - Returns a pointer to it
+**   If insufficient memory is available, NULL is returned
 */
 
-int		ft_isalnum(int c)
+char	*ft_strdup(const char *s1)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
-		return (0);
+	size_t	size;
+	char	*dup;
+
+	size = ft_strlen(s1);
+	dup = ft_calloc(size + 1, 1);
+	if (dup == NULL)
+		return (NULL);
+	ft_memcpy(dup, s1, size);
+	dup[size] = 0;
+	return (dup);
 }
+
+/*
+** line 29-30 : Added protection
+*/

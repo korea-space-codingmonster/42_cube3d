@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 16:27:21 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:31:32 by mihykim          ###   ########.fr       */
+/*   Created: 2020/02/26 16:14:09 by mihykim           #+#    #+#             */
+/*   Updated: 2020/04/03 22:10:24 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Tests for any character for which isalpha(3) or isdigit(3) is true.
-** - Returns non-zero if the character tests true,
-**   or returns zero if the character tests false.
+** - Returns corresponding lower-case one,
+**   if the argument is an upper-case letter.
+** - If there is no corresponding one, the argument is returned.
 */
 
-int		ft_isalnum(int c)
+int		ft_tolower(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 'a' - 'A');
 	else
-		return (0);
+		return (c);
 }

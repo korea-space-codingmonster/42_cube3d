@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 14:18:03 by napark            #+#    #+#             */
-/*   Updated: 2021/03/13 20:48:05 by napark           ###   ########.fr       */
+/*   Created: 2020/03/17 00:39:22 by mihykim           #+#    #+#             */
+/*   Updated: 2020/10/31 12:56:38 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isset(char c, char *set)
+int		ft_isset(char c, char *set)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (set[i])
-    {
-        if (c == set[i])
-            return (1);
-        i++;
-    }
-    return (0);
-}//문자열 중에 일치하는 문장이 있는지 검색
+	i = 0;
+	while (set[i])
+	{
+		if (c == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: mihykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 14:57:40 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 21:52:45 by mihykim          ###   ########.fr       */
+/*   Created: 2020/10/29 14:33:36 by mihykim           #+#    #+#             */
+/*   Updated: 2020/10/29 14:52:25 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** - Frees the memory of an element's content using function 'del'
-** - Frees the element
-** - The memory of 'next' must no be freed
-*/
-
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (lst == 0 || del == 0)
-		return ;
-	del(lst->content);
-	free(lst);
+	int i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }

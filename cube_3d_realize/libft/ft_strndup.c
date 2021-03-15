@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdd_back.c                                    :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: mihykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 17:11:09 by napark            #+#    #+#             */
-/*   Updated: 2021/03/13 21:02:37 by napark           ###   ########.fr       */
+/*   Created: 2020/10/29 15:07:21 by mihykim           #+#    #+#             */
+/*   Updated: 2020/10/31 14:42:23 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** - Adds the element 'new' at the end of the list
-*/
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
+char	*ft_strndup(char *s1, size_t size)
 {
-	if (lst == 0 || new == 0)
-		return ;
-	if (*lst == 0)
-		*lst = new;
-	else
-		(ft_lstlast(*lst))->next = new;
+	char	*dup;
+
+	dup = (char *)malloc(sizeof(char) * (size + 1));
+	if (dup == 0)
+		return (0);
+	ft_strcpy(dup, s1, size);
+	dup[size] = 0;
+	return (dup);
 }

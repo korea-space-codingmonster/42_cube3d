@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 16:27:21 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:31:32 by mihykim          ###   ########.fr       */
+/*   Created: 2020/02/26 08:08:55 by mihykim           #+#    #+#             */
+/*   Updated: 2020/10/29 14:37:34 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Tests for any character for which isalpha(3) or isdigit(3) is true.
-** - Returns non-zero if the character tests true,
-**   or returns zero if the character tests false.
+** - Computes the length of string 's'.
+** - Returns # of characters that precede the terminating NUL character.
+**   Returns either the same result as strlen() or maxlen, whichever is smaller.
 */
 
-int		ft_isalnum(int c)
+int	ft_strlen(const char *s)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
-		return (0);
+	int i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

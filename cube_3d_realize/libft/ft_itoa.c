@@ -5,12 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 17:04:11 by napark            #+#    #+#             */
-/*   Updated: 2021/03/13 20:48:01 by napark           ###   ########.fr       */
+/*   Created: 2020/02/27 10:17:47 by mihykim           #+#    #+#             */
+/*   Updated: 2021/03/15 23:09:04 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** - Allocates (with malloc) a string representing 'n'
+** - Negative numbers must be handled.
+** - Returns the string, or NULL if the allocation fails.
+*/
 
 void	put_zero_or_minus(int n, char *res)
 {
@@ -47,3 +53,8 @@ char	*ft_itoa(int n)
 	put_zero_or_minus(n, res);
 	return (res);
 }
+
+/*
+** line 24 : change value of res[0] from 0 to '0'
+** line 49 : add + '0' to convert from int to char
+*/

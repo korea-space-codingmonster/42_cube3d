@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 04:14:22 by napark            #+#    #+#             */
-/*   Updated: 2021/03/13 11:35:39 by napark           ###   ########.fr       */
+/*   Created: 2020/02/26 15:24:36 by mihykim           #+#    #+#             */
+/*   Updated: 2021/03/15 23:09:06 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,8 @@ int		ft_atoi(const char *str)
 	}
 	return (atoi * sign);
 }
+
+/*
+** line 18 : changed type of atoi from 'int' to 'unsigned long int'
+** line 26 : changed from 'while' to 'if'
+*/

@@ -5,17 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 14:15:14 by napark            #+#    #+#             */
-/*   Updated: 2021/03/13 20:48:04 by napark           ###   ########.fr       */
+/*   Created: 2020/02/26 15:56:47 by mihykim           #+#    #+#             */
+/*   Updated: 2021/03/15 23:09:02 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isprint(int c)
+/*
+** - Returns non-zero if the character tests true,
+**   or returns zero if the character tests false.
+*/
+
+int		ft_isprint(int c)
 {
-    if (c >= ' ' && c <= '~')
-        return (1);//범위안에 있으면 출력가능
-    else
-        return (0);
+	if (c >= ' ' && c <= '~')
+		return (1);
+	else
+		return (0);
 }

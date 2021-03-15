@@ -3,19 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 12:23:56 by napark            #+#    #+#             */
-/*   Updated: 2021/03/13 20:48:08 by napark           ###   ########.fr       */
+/*   Created: 2020/02/26 15:52:57 by mihykim           #+#    #+#             */
+/*   Updated: 2020/02/27 07:31:49 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isascii(int c)//아스키코드로 표현 가능 여부 확인 함수
+/*
+** Tests for an ASCII character, any character btw 0 and octal 0177 inclusive.
+** (octal 0177 == decimal 127)
+*/
+
+int		ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return (1);
-    else
-        return (0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }
