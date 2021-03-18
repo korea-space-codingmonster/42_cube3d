@@ -6,7 +6,7 @@
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 12:35:34 by napark            #+#    #+#             */
-/*   Updated: 2021/03/16 15:49:37 by napark           ###   ########.fr       */
+/*   Updated: 2021/03/16 16:08:13 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int     decide_store_what_info(t_all *s, char **info)
         store_map_size(s, info[1], info[2]);
     else if (ft_strcmp(info[0], "NO") == 0)
         store_location_path(s, info[1], NORTH);
+    else if (ft_strcmp(info[0], "SO") == 0)
+        store_location_path(s, info[1], SOUTH);
         
 }
 
@@ -64,4 +66,6 @@ void    store_location(t_all *s, char *path, int location)
     fd = open(path, O_RDONLY);
     if (fd == -1)
         ft_strexit("ERROR : File(.xpm) is not exisit");
+    s->tex.path[location] = ft_strdup(path);
+    close(fd);
 }

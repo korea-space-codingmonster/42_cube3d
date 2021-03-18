@@ -6,7 +6,7 @@
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 23:10:52 by napark            #+#    #+#             */
-/*   Updated: 2021/03/16 12:35:16 by napark           ###   ########.fr       */
+/*   Updated: 2021/03/16 16:04:37 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int     main(int argc, char **argv)
     check_save_option(argc, argv[2], &save);
     initial_all(&s);
     open_cub(argv[1], &s);
-    read_infor_parsing(&s);
+    read_info(&s);
 }
 
 void    check_save_option(int argc, char *option, int *save)
@@ -42,14 +42,14 @@ void	init_all(t_all *s)
 {
 	s->width = 0;
 	s->height = 0;
-	ft_memset(s->tex.path, 0, 6);
-	s->tex.floor = -1;
-	s->tex.ceiling = -1;
+	// ft_memset(s->tex.path, 0, 6);
+	// s->tex.floor = -1;
+	// s->tex.ceiling = -1;
 	s->map = NULL;
 	s->map_width = 0;
 	s->map_height = 0;
-	s->player.dir = '\0';
-	s->sprite = NULL;
+    // s->player.dir = '\0';
+	// s->sprite = NULL;
 	s->num_sprite = 0;
 	s->buf = NULL;
 	s->z_buffer = NULL;
