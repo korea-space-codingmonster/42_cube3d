@@ -6,7 +6,7 @@
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 23:10:52 by napark            #+#    #+#             */
-/*   Updated: 2021/03/19 03:10:12 by napark           ###   ########.fr       */
+/*   Updated: 2021/03/19 12:31:33 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int     main(int argc, char **argv)
     open_cub(argv[1], &s);
     read_info(&s);
     validate_info(&s);
+    read_map(&s);
 }
 
 void    check_save_option(int argc, char *option, int *save)

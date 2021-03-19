@@ -5,112 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 12:35:34 by napark            #+#    #+#             */
-/*   Updated: 2021/03/19 12:22:28 by napark           ###   ########.fr       */
+/*   Created: 2021/03/19 12:35:01 by napark            #+#    #+#             */
+/*   Updated: 2021/03/19 14:29:12 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void    read_info(t_all *s)
+void     read_map(t_all *s, char *line)
 {
-    char *line;
-    char **info;
-    char *flag;
-
-    while (get_next_line(s->fd, &line) > 0)
-    {
-        if (line[0] == EMPTY_LINE)
-            continue;
-        info = ft_split(line, ' ');//스페이스가 있을 시 분리하여 info에 초기화
-        if (!info)
-            ft_strexit("ERROR : Invalid .cub File!");
-        flag = decide_store_what_info(s, info);//맵파싱
-        ft_free_2d(info);
-        if (flag = MAP_COMPLETE)
-            break;
+    //read_map = 맵을 읽고 유효성 검사까지
+    // 읽을 때 연결리스트로?
+        s->lst = ft_lstnew(ft_strdhup(line));//맵의 첫째줄을 연결리스트에 삽입
         free(line);
-    }
-    s->line = line;//맵 정보 파싱 후 맵정보까지만
+        while (get_next_line(s->fd, &line))
+        {
+            if (line[0] == NULL)
+                break;
+            ft_lstadd_back(&s->lst, ft_lstnew(line));//s->lst에 line노드를 줄줄이 추가
+            free(line);
+        }
+        free(line);
+        allocate_map(s, s->lst);
 }
 
-int     decide_store_what_info(t_all *s, char **info)//.xpm이 저장된 경로를 저장한다.
+void    allocate_map(t_all *s, t_list *curr)//지도를 저장하기 위한 메모리 할당
 {
-    if (ft_strcmp(info[0], "R") == 0)
-        store_map_size(s, info[1], info[2]);
-    else if (ft_strcmp(info[0], "NO") == 0)
-        store_location_path(s, info[1], NORTH);
-    else if (ft_strcmp(info[0], "SO") == 0)
-        store_location_path(s, info[1], SOUTH);
-    else if (ft_strcmp(info[1], "WE") == 0)
-        store_location_path(s, info[1], WEST);
-    else if (ft_strcmp(info[1], "WA") == 0)
-        store_location_path(s, info[1], EAST);
-    else if (ft_strcmp(info[1], "S") == 0)
-        store_location_path(s, info[1], SPRITE);
-    else if (ft_strcmp(info[1], "F") == 0)
-        store_color(s, info[1], FLOOR);
-    else if (ft_strcmp(info[1], "C") == 0)
-        store_color(s, info[1], CEILING);
-    else
-        return MAP_COMPLETE;
-    return (0);
-}
-
-void    store_map_size(t_all *s, char *width, char *height)
-{
-    if (!width || !height)
-        ft_strexit("ERROR : Empty width height. Please check your .cubs file");
-    if (!ft_only_digit(width) && !ft_only_digit(height))
-        ft_strexit("ERROR : Either one of them is not a number.");
-    s->width = ft_atoi(width);
-    s->height = ft_atoi(height);
-    s->width = s->width > 1920 ? 1920 : s->width;
-    s->width = s->width < 848 ? 848 : s->width;
-    s->height = s->height > 1080 ? 1080 : s->height;
-    s->height = s->height < 480 ? 480 : s->height;
-    
-}
-
-void    store_location(t_all *s, char *path, int location)
-{
-    int     fd;
-
-    if (!path || !ft_isformat(path, ".xpm"))
-        ft_strexit("ERROR : Path is empty or path is Invalid format");
-    
-    fd = open(path, O_RDONLY);
-    if (fd == -1)
-        ft_strexit("ERROR : File(.xpm) is not exisit");
-    s->tex.path[location] = ft_strdup(path);
-    close(fd);
-}
-
-void    store_color(t_all *s, char *rgb_comma, int flag)
-{
-    char **rgb;
     int i;
-    int hex;
-    int temp;
+    int j;
 
-    if (!(rgb = ft_split(rgb_comma, ',')))
-        ft_strexit("ERROR : Invalid RGB Syntex!!");
+    s->map_width = ft_longest_node_len(curr);//맵의 넓이(가로)
+    s->map_height = ft_lstsize(curr);//맵의 세로(높이)
+
+    if (!(s->map = malloc(sizeof(char *) * (s->map_height + 1))))//char형 메모리가 높이 만큼
+        ft_strexit("ERROR : Not allocate Memory");
+    //이제 넓이 개수만큼 각 메모리를 할당하면서
+    s->map[s->map_height] = NULL;
 
     i = 0;
-    hex = 0;
-    while (i < 3)
+    j = 0;
+    while (curr)
     {
-        if (!rgb[i] || !ft_only_digit(rgb[i]))
-            ft_strexit("ERROR : RGB empty or Not number");
-        temp = ft_atoi(rgb[i]);
-        if (temp > 255 || temp < 0)
-            ft_strexit("ERROR : RGB over range");
-        hex = hex * 256 + temp;
-        i++;
+        if (!(s->map[i] = malloc(sizeof(char *) * (s->map_width + 1))))
+            ft_strexit("ERROR : Not allocate Memory");
+        j = 0;
+        while (j < s->map_width)
+        {
+            s->map[i][j] = ' ';
+            j++;
+        }
     }
-    if (flag == FLOOR)
-        s->tex.floor = hex;
-    else if (flag == CEILING)
-        s->tex.floor = hex;
-    fd_free_2d(rgb);
+
+    
+    
 }
