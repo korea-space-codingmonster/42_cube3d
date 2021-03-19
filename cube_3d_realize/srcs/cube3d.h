@@ -25,6 +25,8 @@
 # define TEX_HEIGHT 256
 # define TEX_WIDTH	256
 
+#define WALL 1
+
 typedef struct	a_tex
 {
 	char		*path[6];
