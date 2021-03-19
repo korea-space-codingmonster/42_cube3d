@@ -6,7 +6,7 @@
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:35:01 by napark            #+#    #+#             */
-/*   Updated: 2021/03/19 14:29:12 by napark           ###   ########.fr       */
+/*   Updated: 2021/03/19 15:54:02 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void     read_map(t_all *s, char *line)
         }
         free(line);
         allocate_map(s, s->lst);
+        store_as_map_array(s, s->lst);
 }
 
 void    allocate_map(t_all *s, t_list *curr)//지도를 저장하기 위한 메모리 할당
@@ -54,8 +55,47 @@ void    allocate_map(t_all *s, t_list *curr)//지도를 저장하기 위한 메�
             s->map[i][j] = ' ';
             j++;
         }
+        s->map[i][s->map_width] = '\0';
+        i++;
+        curr = curr->next;
     }
+}
 
-    
-    
+void    store_as_map_array(t_all *s, t_list *curr)//메모리 할당 후 할당된 메모리에 map을 넣는 함수
+{
+    char *content;
+    int i;
+    int j;
+
+    i = 0;
+    while (i < s->map_height)
+    {
+        j = 0;
+        content = (char *)curr->content;//line에서 연결리스트로 저장한 겂들을 가지고 있음
+        while (j < s->map_height)
+        {
+            if (!ft_isset(content[j], "NSWE012 \n") && content[j] != '\0')//맵이 뚤려있거나, NSWE012가 있으면 EEOR
+                ft_strexit("ERROR : ERROR: Invalid Map Element Contained!");
+            s->map[i][j] = content[j];//맵의 정보를 저장
+            if (ft_isset(content[j], "NSWE"))//player가 바라보고 있는 방향, 플레이어 위치반환
+                create_playrer(s, i, j);
+        }
+    }
+}
+
+void    create_player(t_all *s, int i, int j)
+{
+    if (s->player.dir)//player.dir가 이미 설정 되어있다면 플레이어가 두명이 되버림
+        ft_strexit("ERROR : Multiple Player Potion Given");
+    s->player.dir = s->map[i][j];//플레이어 위치 저장
+    s->player.x = 2;
+	s->player.y = 5;
+	s->player.dir_x = -1.0;
+	s->player.dir_y = 0.0;
+	s->player.plane_x = 0.0;
+	s->player.plane_y = 0.66;
+	s->player.move_speed = 0.07;
+	s->player.rot_speed = 0.08;
+	s->player.x = 0.5f + j;
+	s->player.y = 0.5f + i;
 }

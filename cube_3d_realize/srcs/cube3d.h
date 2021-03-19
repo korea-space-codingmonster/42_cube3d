@@ -16,9 +16,11 @@
 # define SOUTH 1
 # define EAST 2
 # define WEST 3
-# define SPR 4
+# define SPRITE 4
 # define FLOOR 5
 # define CEILING 6
+
+# define MAP_COMPLETE -1
 
 # define TEX_HEIGHT 256
 # define TEX_WIDTH	256
@@ -31,6 +33,18 @@ typedef struct	a_tex
 	int			ceiling;
 }				t_tex;
 
+typedef struct	a_player
+{
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	move_speed;
+	double	rot_speed;
+	char	dir;
+}				t_player;
 
 typedef struct	s_all
 {
@@ -38,7 +52,7 @@ typedef struct	s_all
 	void		*win;
 	// t_img		img;
 	t_tex		tex;
-	// t_player	player;
+	t_player	player;
 	// t_ray		ray;
 	// t_spr_ray	s_ray;
 	// t_spr		*sprite;
@@ -48,11 +62,11 @@ typedef struct	s_all
 	int			fd;
 	int			width;
 	int			height;
-	char		**map;
-	int			map_width;
-	int			map_height;
-	char		*line;
-	t_list		*lst;
+	char		**map;//map을 저장하기 위한 메모리
+	int			map_width;//map의 길이
+	int			map_height;//map의 높이
+	char		*line;//.cub파일을 한줄한줄 가리키는 포인터
+	t_list		*lst;//맵 한줄 한줄을 연결리스트에 초기화
 }			    t_all;
 
 #endif

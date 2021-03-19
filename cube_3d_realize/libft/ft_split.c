@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 08:43:40 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 22:11:16 by mihykim          ###   ########.fr       */
+/*   Updated: 2021/03/19 15:18:29 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	str_malloc_copy(char *s, char c, size_t num, char **res)
 		{
 			while (s[i + len] != c && s[i + len])
 				len++;
-			res[x] = ft_calloc(sizeof(char), len + 1);
+			res[x] = ft_calloc(sizeof(char), len + 1);//str[i]에 각각 메모리 할당을 해주며 복사 붙여넣기
 			if (res[x] == 0)
 				return ;
 			ft_strlcpy(res[x], s + i, len + 1);
@@ -72,8 +72,8 @@ char	**ft_split(char const *s, char c)
 
 	if (s == 0)
 		return (0);
-	num = ft_strnum((char *)s, c);
-	res = ft_calloc(sizeof(char *), num + 1);
+	num = ft_strnum((char *)s, c);//글자 개수
+	res = ft_calloc(sizeof(char *), num + 1);//메모리 할당
 	if (res == 0)
 		return (0);
 	res[num] = 0;
