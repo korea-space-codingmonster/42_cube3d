@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.h                                           :+:      :+:    :+:   */
+/*   save_option.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/03/30 18:47:46 by napark           ###   ########.fr       */
+/*   Created: 2021/03/30 18:32:42 by napark            #+#    #+#             */
+/*   Updated: 2021/03/30 18:51:43 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <math.h>
-#include "./libft/libft.h"
-#include "./mlx/mlx.h"
+#include "cube3d.h"
 
-#define OFF 0;
-#define ON 1;
-
-
-typedef struct  s_cube3d
+void        check_save_option(int argc, char *argv, int *save)
 {
-    void *mlx;
-    void *win;
-}               t_cube3d;
+	if (argc > 3)
+		ft_strexit("ERROR : So many arguments exist");
+	if (argc < 2)
+		ft_strexit("ERROR : So few arguments exist");
+	if (argc == 2)
+		save = OFF;
+	else if (ft_strcmp(argv, "--save") == 0)
+		save = ON;
+	else
+		ft_strexit("ERROR");
+}
