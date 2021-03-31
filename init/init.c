@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.h                                           :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/03/31 23:28:09 by napark           ###   ########.fr       */
+/*   Created: 2021/03/31 22:49:17 by napark            #+#    #+#             */
+/*   Updated: 2021/03/31 23:31:33 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <math.h>
-#include "./libft/libft.h"
-#include "./mlx/mlx.h"
+#include "cube3d.h"
 
-#define OFF 0;
-#define ON 1;
-
-typedef struct s_window
+void    init(t_cube3d *s, char *argv, int save)
 {
-    int width;
-    int height;
-}               t_window;
+    s->mlx = mlx_init();
+    mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);//스크린 사이즈 가져오기
+    parse(s, argv);
+}
 
-
-typedef struct  s_cube3d
-{
-    t_window    tw;
-    void *mlx;
-    void *win;
-}               t_cube3d;
