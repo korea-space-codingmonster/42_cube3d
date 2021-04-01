@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/01 14:59:14 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/01 15:41:02 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 #define EROOR 0
 #define SUCCESS 1
 
-exturn  t_uc s_parse_check;    
+쇼ㅔㅇㄷ
+
+extern  t_uc s_parse_check;
 
 typedef struct s_window
 {
