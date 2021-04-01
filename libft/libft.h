@@ -97,4 +97,7 @@ int					ft_longest_node_len(t_list *lst);
 int					get_next_line(int fd, char **line);
 void				ft_strexit(char *str);
 
+
+char     **ft_split_count(char *line, char sp, int *word_cnt);
+
 #endif
