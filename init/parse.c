@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:42:37 by napark            #+#    #+#             */
-/*   Updated: 2021/04/01 21:04:58 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/01 21:14:52 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,14 @@ static void     check_parse_type(t_cube3d *s, char *line)
 static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
 {
     if (!ft_strcmp(split_count[0], "R") && word_count == 3)
-        init_information(s, split_count);
+        store_information(s, split_count[1], split_count[2]);
 }
 
-void    init_information(t_cube3d *s, char **split_count)
+void    store_information(t_cube3d *s, char **width, char **height)
 {
-    t_window_size tws;
+    if (!width || !height)
+        ft_strexit("ERROR : No data in width and height");
+    else if (ft_only_digit(width) || ft_only_digit(height))
+        
 
-    if (((s_parse_check >> R) & 1) == 1)
-        ft_strexit("ERROR : Invalid code(R)");
 }
