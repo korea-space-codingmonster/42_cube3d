@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 22:49:17 by napark            #+#    #+#             */
-/*   Updated: 2021/04/01 16:31:24 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/01 17:36:04 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,45 +37,14 @@ void    parse(t_cube3d *s, char *argv)
 
 static void     check_parse_type(t_cube3d *s, char *line)
 {
-    int **split_count;
+    char **split_count;
     int word_count;
 
     if (ft_strlen(line))//line의 줄을 센다
     {
-        if (!(split_count = ft_split_count(line, ' ', word_count)))
+        if (!(split_count = ft_split_count(line, ' ', word_count)))//' '로 분리된 부분이 몇개인지 카운트
             ft_strexit("ERROR : (.cub) file is invalid!");
     }
-}
-
-int     ft_split_count(char *line, char sp, int word_count)
-{
-    int word_count;
-
-    word_count = ft_word_count(line, sp);
-}
-
-static size_t   ft_word_count(char const *line, char sp)//space전까지 word의 수를 세주는 함수
-{
-    size_t count;
-
-    count = 0;
-    while (*line && *line == sp)//space가 나올때까지 전진
-        line++;
-    while (*line)
-    {
-        //이 부분 질문
-        count++;
-        while (*line && *line != sp)
-        {
-            line++;
-        }
-        while (*line && *line == sp)
-        {
-            line++;
-        }
-        return (count);
-    }
-
 }
 
 static int     check_path(char *argv)

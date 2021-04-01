@@ -53,7 +53,8 @@ SRCS	= ./ft_memset.c \
 		 ./ft_lstmap.c \
 		 ./ft_longest_node_len.c \
 		 ./ft_strexit.c \
-		 ./get_next_line.c
+		 ./get_next_line.c \
+		 ./ft_split_count.c
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
