@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/03/31 23:28:09 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/01 14:59:14 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@
 #include "./libft/libft.h"
 #include "./mlx/mlx.h"
 
-#define OFF 0;
-#define ON 1;
+#define OFF 0
+#define ON 1
+#define EROOR 0
+#define SUCCESS 1
+
+exturn  t_uc s_parse_check;    
 
 typedef struct s_window
 {
