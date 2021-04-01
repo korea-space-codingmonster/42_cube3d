@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 22:49:17 by napark            #+#    #+#             */
-/*   Updated: 2021/04/01 17:42:09 by napark           ###   ########.fr       */
+/*   Created: 2021/04/01 17:42:37 by napark            #+#    #+#             */
+/*   Updated: 2021/04/01 17:44:34 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
-
-t_uc    s_parse_check = 0;//1바이트 공간 확보
-
-void    init(t_cube3d *s, char *argv, int save)
-{
-    s->mlx = mlx_init();
-    mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);//스크린 사이즈 가져오기
-    parse(s, argv);
-}
 
 void    parse(t_cube3d *s, char *argv)
 {
@@ -35,18 +26,6 @@ void    parse(t_cube3d *s, char *argv)
         check_parse_type(s, line);
 }
 
-static void     check_parse_type(t_cube3d *s, char *line)
-{
-    char **split_count;
-    int word_count;
-
-    if (ft_strlen(line))//line의 줄을 센다
-    {
-        if (!(split_count = ft_split_count(line, ' ', word_count)))//' '로 분리된 부분이 몇개인지 카운트
-            ft_strexit("ERROR : (.cub) file is invalid!");
-    }
-}
-
 static int     check_path(char *argv)
 {
     int     len;
@@ -57,4 +36,17 @@ static int     check_path(char *argv)
     if (argv[len - 1] == 'b' && argv[len - 2] == 'u' && argv[len - 3] == 'c' && argv[len - 4] == '.')
             return (SUCCESS);
     return (ERROR);
+}
+
+static void     check_parse_type(t_cube3d *s, char *line)
+{
+    char **split_count;
+    int word_count;
+
+    if (ft_strlen(line))//line의 줄을 센다
+    {
+        if (!(split_count = ft_split_count(line, ' ', &word_count)))//' '로 분리된 부분이 몇개인지 카운트
+            ft_strexit("ERROR : (.cub) file is invalid!");
+        
+    }
 }
