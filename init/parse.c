@@ -60,6 +60,8 @@ static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
 
 void    store_information(t_cube3d *s, char **width, char **height)
 {
+    t_ivec  ti;
+
     if (!width || !height)
         ft_strexit("ERROR : No data in width and height");
     else if (ft_only_digit(width) || ft_only_digit(height))

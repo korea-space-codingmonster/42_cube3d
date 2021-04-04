@@ -50,11 +50,17 @@ typedef struct  s_window_size
     int y;
 }               t_window_size;
 
+typedef struct s_ivec
+{
+    int     data_width;
+    int     data_height;
+}               t_ivec;
+
 
 typedef struct  s_cube3d
 {
     t_window    tw;
-    t_ivec      
+    t_ivec      ti;
     void *mlx;
     void *win;
 }               t_cube3d;
