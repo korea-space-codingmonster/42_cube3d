@@ -58,6 +58,25 @@ static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
         store_information(s, split_count[1], split_count[2]);
 }
 
+static  int     ft_new_itoa(t_cube3d *s, char *value)
+{
+    int     len;
+    int     n;
+
+    n = 0;
+    len = ft_strlen(value);
+    while (len > 0 && ft_strchr("0123456789", value))
+    {
+        n *= 10;
+        n += *value++ - '0';
+        --len; 
+    }
+    if (len != 0)
+        ft_strexit("ERROR : parsing error store_information");
+    return (n);
+
+}
+
 void    store_information(t_cube3d *s, char **width, char **height)
 {
     t_ivec  ti;
@@ -65,6 +84,11 @@ void    store_information(t_cube3d *s, char **width, char **height)
     if (!width || !height)
         ft_strexit("ERROR : No data in width and height");
     else if (ft_only_digit(width) || ft_only_digit(height))
-        
-
+        ti.data_width = ft_new_itoa(s, width);
+        ti.data_height = ft_new_itoa(s, height);
+    
+    if (ti.data_height < s->timg.height)
+        s->timg.height = ti.data_height;
+    if (ti.data_width < s->timg.width)
+        s->timg.width = ti.data_width;
 }

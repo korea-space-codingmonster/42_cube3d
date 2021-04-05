@@ -24,8 +24,12 @@ ifeq ($(UNAME_S), Linux)
 		try installing the package below.\n\
 		$(FG_TEXT)$(CL_BOLD)gcc make xorg libxext-dev libbsd-dev$(NO_COLOR)\n"
 endif
-ifeq
-
+ifeq ($(UNAME_S),Darwin)
+		MLX = libmlx.dylib
+		MLX_DIR = lib/minilibx_mms_20200219
+		MLX_FLAGS = -L./$(MLX_DIR) -lmlx
+		MLX_CP = cp $(MLX_FILE) $(MLX)
+		MLX_RM = rm -f $(MLX)
 endif
 #####################################################
 
