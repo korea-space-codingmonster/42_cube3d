@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/01 21:14:55 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/05 20:25:12 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <math.h>
-#include "./libft/libft.h"
-#include "./lib/minilibx-linux/mlx.h"
+#include <libft.h>
+#include <mlx.h>
 
 #define OFF 0
 #define ON 1
@@ -34,9 +34,10 @@
 # define R 7
 
 typedef unsigned char t_uc;
-
-
+typedef unsigned int  t_ui;
 extern  t_uc s_parse_check;
+
+
 
 typedef struct s_window
 {
@@ -57,9 +58,30 @@ typedef struct s_ivec
     int     data_height;
 }               t_ivec;
 
+
+typedef union   u_color
+{
+    struct
+    {
+        t_ui    b   :8;
+        t_ui    g   :8;
+        t_ui    r   :8;
+        t_ui    t   :8;
+    }               bit;
+    int         i;
+}               t_color;
+
+typedef struct s_color
+{
+
+}               t_color;
+
 //realwindow width, height
 typedef struct s_img
 {
+    void    *ptr;
+    t_color *data;
+    int     bpp;
     int     width;
     int     height;
 }               t_img;
@@ -69,6 +91,7 @@ typedef struct  s_cube3d
 {
     t_window    tw;
     t_img       timg;
+    t_img       path[7];
     void *mlx;
     void *win;
 }               t_cube3d;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:42:37 by napark            #+#    #+#             */
-/*   Updated: 2021/04/01 21:14:52 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/05 20:28:07 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,39 +56,22 @@ static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
 {
     if (!ft_strcmp(split_count[0], "R") && word_count == 3)
         store_information(s, split_count[1], split_count[2]);
+    if (!ft_strcmp(split_count[0], "NO" && word_count == 2))
+        init_texture(s, split_count[1], NO);
 }
 
-static  int     ft_new_itoa(t_cube3d *s, char *value)
+void    init_texture(t_cube3d *s, char *path, char text_direc)
 {
-    int     len;
-    int     n;
+    t_img   *img;
 
-    n = 0;
-    len = ft_strlen(value);
-    while (len > 0 && ft_strchr("0123456789", value))
-    {
-        n *= 10;
-        n += *value++ - '0';
-        --len; 
-    }
-    if (len != 0)
-        ft_strexit("ERROR : parsing error store_information");
-    return (n);
+    if (((s_parse_check >> text_direc) & 1) == 1)
+        ft_strexit("EEROR : Invalid map file or already reload path");
+    s_parse_check |= 1 << text_direc;
+    img = &s->path[text_direc];
 
-}
-
-void    store_information(t_cube3d *s, char **width, char **height)
-{
-    t_ivec  ti;
-
-    if (!width || !height)
-        ft_strexit("ERROR : No data in width and height");
-    else if (ft_only_digit(width) || ft_only_digit(height))
-        ti.data_width = ft_new_itoa(s, width);
-        ti.data_height = ft_new_itoa(s, height);
-    
-    if (ti.data_height < s->timg.height)
-        s->timg.height = ti.data_height;
-    if (ti.data_width < s->timg.width)
-        s->timg.width = ti.data_width;
+    if (!(img->ptr = mlx_xpm_file_to_image(s->mlx, path, &img->width, &img->height)))
+        ft_strexit("ERROR : fail to img load!");
+    if (!(img->data = (t_color *)mlx_get_data_addr(img->ptr, &img->bpp, &img->size_l, &img->endian)))
+        ft_strexit("ERROR : texture data load error!");
+    img->
 }
