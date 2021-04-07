@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:42:37 by napark            #+#    #+#             */
-/*   Updated: 2021/04/05 20:28:07 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/07 14:02:43 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
 {
     if (!ft_strcmp(split_count[0], "R") && word_count == 3)
         store_information(s, split_count[1], split_count[2]);
-    if (!ft_strcmp(split_count[0], "NO" && word_count == 2))
+    else if (!ft_strcmp(split_count[0], "NO" && word_count == 2))
         init_texture(s, split_count[1], NO);
+    else if (!ft_strcmp(split_count[0], "SO" && word_count == 2))
+        init_texture(s, )
 }
 
 void    init_texture(t_cube3d *s, char *path, char text_direc)
@@ -73,5 +75,5 @@ void    init_texture(t_cube3d *s, char *path, char text_direc)
         ft_strexit("ERROR : fail to img load!");
     if (!(img->data = (t_color *)mlx_get_data_addr(img->ptr, &img->bpp, &img->size_l, &img->endian)))
         ft_strexit("ERROR : texture data load error!");
-    img->
+    img->line = img->size_l / (img->bpp / 8);
 }
