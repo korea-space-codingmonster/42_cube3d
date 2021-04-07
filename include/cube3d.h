@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/05 20:34:51 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/07 16:39:25 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ typedef union   u_color
     int         i;
 }               t_color;
 
-
-
 //realwindow width, height
 typedef struct s_img
 {
@@ -92,6 +90,7 @@ typedef struct  s_cube3d
     t_window    tw;
     t_img       timg;
     t_img       path[7];
+    t_color     tc[2];
     void *mlx;
     void *win;
 }               t_cube3d;

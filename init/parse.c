@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:42:37 by napark            #+#    #+#             */
-/*   Updated: 2021/04/07 14:02:43 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/07 16:39:23 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void    parse(t_cube3d *s, char *argv)
     if ((fd = open(argv, O_RDONLY)) == -1)//.cub파일 오픈
         ft_strexit("ERROR : we can't open .cub file");//열지 못하면 프로그램 exit
     while ((s_parse_check != 0xFF) && (check = get_next_line(fd, &line)) >= 0)
-        check_parse_type(s, line);
+        check_parse_type(s, line);// type별 파싱 진행
+    if (check < 0)
+        ft_strexit("ERROR : ");
 }
 
 static int     check_path(char *argv)
@@ -31,14 +33,14 @@ static int     check_path(char *argv)
     int     len;
 
     if (ft_strlen(argv) < 4)
-            ft_strexit("ERROR : unavailable .cub file");
+            ft_strexit("ERROR : Invalide start syntext! rewrite start!");
             return(ERROR);
     if (argv[len - 1] == 'b' && argv[len - 2] == 'u' && argv[len - 3] == 'c' && argv[len - 4] == '.')
             return (SUCCESS);
     return (ERROR);
 }
 
-static void     check_parse_type(t_cube3d *s, char *line)
+static void     check_parse_type(t_cube3d *s, char *line)//parse시작
 {
     char **split_count;
     int word_count;
@@ -48,8 +50,16 @@ static void     check_parse_type(t_cube3d *s, char *line)
         if (!(split_count = ft_split_count(line, ' ', &word_count)))//' '로 분리된 부분이 몇개인지 카운트
             ft_strexit("ERROR : (.cub) file is invalid!");
         start_parse(s, split_count, word_count);
-        
+        ft_free_arr(split_count, word_count);
     }
+    free(line);
+}
+
+static  void    ft_free_arr(char **split_count, int word_count)
+{
+    while (word_count--)
+        free(split_count[word_count]);
+    free(split_count);
 }
 
 static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
@@ -59,21 +69,17 @@ static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
     else if (!ft_strcmp(split_count[0], "NO" && word_count == 2))
         init_texture(s, split_count[1], NO);
     else if (!ft_strcmp(split_count[0], "SO" && word_count == 2))
-        init_texture(s, )
-}
-
-void    init_texture(t_cube3d *s, char *path, char text_direc)
-{
-    t_img   *img;
-
-    if (((s_parse_check >> text_direc) & 1) == 1)
-        ft_strexit("EEROR : Invalid map file or already reload path");
-    s_parse_check |= 1 << text_direc;
-    img = &s->path[text_direc];
-
-    if (!(img->ptr = mlx_xpm_file_to_image(s->mlx, path, &img->width, &img->height)))
-        ft_strexit("ERROR : fail to img load!");
-    if (!(img->data = (t_color *)mlx_get_data_addr(img->ptr, &img->bpp, &img->size_l, &img->endian)))
-        ft_strexit("ERROR : texture data load error!");
-    img->line = img->size_l / (img->bpp / 8);
+        init_texture(s, split_count[1], SO);
+    else if (!ft_strcmp(split_count[0], "WE" && word_count == 2))
+        init_texture(s, split_count[1], WE);
+    else if (!ft_strcmp(split_count[0], "EA" && word_count == 2))
+        init_texture(s, split_count[1], EA);
+    else if (!ft_strcmp(split_count[0], "S" && word_count == 2))
+        init_texture(s, split_count[1], S);
+    else if (!ft_strcmp(split_count[0], "F" && word_count == 2))
+        init_RGB_color(s, split_count[1], F);
+    else if (!ft_strcmp(split_count[0], "C" && word_count == 2))
+        init_RGB_color(s, split_count[1], C);
+    else
+        ft_strexit("ERROR : Invalid map format, please check your (.cub) file");
 }

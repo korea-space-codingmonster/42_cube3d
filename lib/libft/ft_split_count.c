@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_count.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:34:48 by napark            #+#    #+#             */
-/*   Updated: 2021/04/01 20:31:44 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/07 16:20:50 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static size_t   ft_word_count(char const *line, char sp)//space전까지 word의
     size_t count;
 
     count = 0;
+
     while (*line && *line == sp)//space가 나올때까지 전진
         line++;
     while (*line)
