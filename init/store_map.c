@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 16:52:46 by napark            #+#    #+#             */
-/*   Updated: 2021/04/07 17:33:27 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:40:45 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static  void    map_parsing(t_cube3d *s, int fd, char *line, int *check)
     while (check = get_next_line(fd, &line) >= 0 && ft_strlen(line))
     {
         //새로운 노드 생성
-        if ()sdfasdfasdf
+        if (!(curr = ft_lstnew(line)))
+            ft_strexit("ERROR : Create list error!");
+        
     }
 }
