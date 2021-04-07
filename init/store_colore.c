@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:37:12 by napark            #+#    #+#             */
-/*   Updated: 2021/04/07 16:39:25 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/07 16:45:55 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void    init_RGB_color(t_cube3d *s, char *rgb_format, char F_C)
     int word_count;
 
     if (((s_parse_check >> F_C) & 1) == 1)
-        ft_strexit("ERROR : Already init value, Please check your value");
+        ft_strexit("ERROR : Alresady init value, Please check your value");
     s_parse_check |= 1 << F_C;
     if (!(split = ft_split_count(rgb_format, ',', &word_count) && word_count == 3))
         ft_strexit("ERROR : Invalid RGB format");
