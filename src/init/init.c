@@ -5,18 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 22:49:17 by napark            #+#    #+#             */
-/*   Updated: 2021/04/07 16:39:26 by napark           ###   ########.fr       */
+/*   Created: 2021/04/08 16:40:28 by napark            #+#    #+#             */
+/*   Updated: 2021/04/08 19:51:19 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include <cube3d.h>
 
-t_uc    s_parse_check = 0;//1바이트 공간 확보
 
-void    init(t_cube3d *s, char *argv, int save)
+void    init(t_cube3d   *s, char *argv, int save)
 {
-    s->mlx = mlx_init();
-    mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);//스크린 사이즈 가져오기
+    (void)save;
+    //s->mlx = mlx_init();
+    //mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);
     parse(s, argv);
+    // init_window(s, save);
 }
