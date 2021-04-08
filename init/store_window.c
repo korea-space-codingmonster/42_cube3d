@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 18:35:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/07 16:46:15 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/08 14:14:51 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static  int     new_atoi1(t_cube3d *s, char *value)
 void    store_information(t_cube3d *s, char **width, char **height)
 {
     t_ivec  ti;
-
 
     if (((s_parse_check >> R) & 1) == 1)
         ft_strexit("ERROR : Already stack value");

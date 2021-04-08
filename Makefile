@@ -1,19 +1,23 @@
+NAME = cub3D
+
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
+
+ifeq ($(DEBUG),true)
+	CFLAGS += -g
+endif
 
 
-
-
-######################libft#########################
+###################### libft #########################
 LIBFT = libft.a
-LIBFT_DIR = libft
+LIBFT_DIR = lib/libft
 LIBFT_FILE = $(LIBFT_DIR)/$(LIBFT)
 LIBFT_FLAGS = -L./$(LIBFT_DIR) -lft
 CINCLUDES += -I $(LIBFT_INC_DIR)
 #####################################################
 
 
-######################minlibx#########################
+###################### minlibx #########################
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
 		MLX_SUBMODULE = git submodul update --init
@@ -33,10 +37,13 @@ ifeq ($(UNAME_S),Darwin)
 endif
 #####################################################
 
-MLX_FILE = $(MLX_DIR)/$(MLX)
+
+################### minilibx compile ################
+MLX_DIR = lib/minilibx_mms_20200219
+MLX_FILE = $(MLX_DIR)
 MLX_INC_DIR = $(MLX_DIR)
 CINCLUDES += -I $(MLX_INC_DIR)
-
+#####################################################
 
 RM = rm
 RMFLAGS = -f
@@ -132,13 +139,14 @@ $(NAME) : $(MLX_FILE) $(LIBFT_FILE) $(HEADERS) $(OBJS)
 $(LIBFT) : $(LIBFT_FILE)
 
 $(LIBFT_FILE):
-		@make --no-print-directory -C $(LIBFT_DIR)
+		@make -C $(LIBFT_DIR)
 
 $(LIBFT)_clean:
-		@make --no-print-directory -C $(LIBFT_DIR) clean
+		@make -C $(LIBFT_DIR) clean
 
 $(LIBFT)_fclean:
-		@make -- no-print_directory -C $(LIBFT_DIR) fclean
+		@make -C $(LIBFT_DIR) fclean
+
 ###########################################################
 
 
@@ -149,11 +157,11 @@ $(MLX_FILE) :
 		@printf "$(CRLF) 📚 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)minilibx $(FG_TEXT)!\n"
 		$(MLX_SUBMODULE)
 		@$(MLX_NOTIC)
-		@make --no_print-firectory -C $(MLX_DIR)
+		@make -C $(MLX_DIR)
 		@printf "$(CRLF) 🎉 $(FG_TEXT) Successfully Created $(FG_TEXT_PRIMARY)minilibx $(FG_TEXT)!\n"
 		@$(MLX_CP)
 $(MLX)_clean :
-		@make --no-print-dirextory -C $(MLX_DIR) clean
+		@make -C $(MLX_DIR) clean
 		@$(MLX_RM)
 ###########################################################
 

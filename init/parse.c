@@ -6,30 +6,11 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 17:42:37 by napark            #+#    #+#             */
-/*   Updated: 2021/04/07 17:05:50 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/08 14:14:11 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
-
-void    parse(t_cube3d *s, char *argv)
-{
-    int fd;
-    int check;
-    char *line;
-
-    if (check_path(argv))//.cub파일 유효성 검사
-        ft_strexit("ERROR : Invalid file (.cub)");//아니면 exit처리
-    if ((fd = open(argv, O_RDONLY)) == -1)//.cub파일 오픈
-        ft_strexit("ERROR : we can't open .cub file");//열지 못하면 프로그램 exit
-    while ((s_parse_check != 0xFF) && (check = get_next_line(fd, &line)) >= 0)
-        check_parse_type(s, line);// type별 파싱 진행
-    if (check < 0)
-        ft_strexit("ERROR : get_next_line can't read line");
-    while ((check = get_next_line(fd, &line) >= 0) && ft_strlen(line))//위에서 읽은 check라인 다음부터 line을 읽어내려가기
-        free(line);
-    store_map_information(s, fd, line, &check);
-}
 
 static int     check_path(char *argv)
 {
@@ -85,4 +66,23 @@ static  void    start_parse(t_cube3d *s, char **split_count, int word_count)
         init_RGB_color(s, split_count[1], C);
     else
         ft_strexit("ERROR : Invalid map format, please check your (.cub) file");
+}
+
+void    parse(t_cube3d *s, char *argv)
+{
+    int fd;
+    int check;
+    char *line;
+
+    if (check_path(argv))//.cub파일 유효성 검사
+        ft_strexit("ERROR : Invalid file (.cub)");//아니면 exit처리
+    if ((fd = open(argv, O_RDONLY)) == -1)//.cub파일 오픈
+        ft_strexit("ERROR : we can't open .cub file");//열지 못하면 프로그램 exit
+    while ((s_parse_check != 0xFF) && (check = get_next_line(fd, &line)) >= 0)
+        check_parse_type(s, line);// type별 파싱 진행
+    if (check < 0)
+        ft_strexit("ERROR : get_next_line can't read line");
+    while ((check = get_next_line(fd, &line) >= 0) && ft_strlen(line))//위에서 읽은 check라인 다음부터 line을 읽어내려가기
+        free(line);
+    store_map_information(s, fd, line, &check);
 }
