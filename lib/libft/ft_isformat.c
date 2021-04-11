@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isformat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 15:25:21 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/16 16:04:37 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:38:41 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:38:57 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 int	ft_isformat(char *str, char *format)
 {

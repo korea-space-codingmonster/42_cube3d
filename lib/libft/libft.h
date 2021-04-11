@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 14:35:04 by mihykim           #+#    #+#             */
-/*   Updated: 2021/04/08 13:49:54 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:32:17 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:33:35 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 int					ft_longest_node_len(t_list *lst);
 int					get_next_line(int fd, char **line);
 void				ft_strexit(char *str);
-
 
 char     **ft_split_count(char *line, char sp, int *word_cnt);
 

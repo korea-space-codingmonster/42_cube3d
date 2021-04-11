@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 16:27:21 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:31:32 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:36:12 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:10:30 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Tests for any character for which isalpha(3) or isdigit(3) is true.

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/17 00:39:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/10/31 12:56:38 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:40:08 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:40:23 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 int		ft_isset(char c, char *set)
 {

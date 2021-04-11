@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 08:43:40 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/19 15:18:29 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:57:55 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:58:11 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Allocates (with malloc) an array of strings obtained by splitting 's'

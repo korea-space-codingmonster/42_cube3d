@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 07:53:46 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/07 13:30:13 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:49:46 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:50:04 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Compares 's1' against 's2', both strings are assumed 'n' bytes long.

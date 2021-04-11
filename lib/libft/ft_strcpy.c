@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 15:09:07 by mihykim           #+#    #+#             */
-/*   Updated: 2020/10/29 15:09:58 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:59:31 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:59:53 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 char	*ft_strcpy(char *dst, char *src, size_t n)
 {

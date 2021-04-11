@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:50:44 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 15:53:01 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:56:07 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:56:20 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Outputs the string 's' to the given file descriptor

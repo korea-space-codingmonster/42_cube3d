@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 05:36:31 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/15 23:08:38 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:53:15 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:53:30 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Writes 'len' bytes of value 'c'(converted to unsigned char) to 'b'.

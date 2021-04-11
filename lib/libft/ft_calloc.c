@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 17:00:05 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/15 23:09:11 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:34:55 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:35:18 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Contiguously allocates enough space for 'count' objects

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 15:56:47 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/15 23:09:02 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:39:22 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:39:50 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Returns non-zero if the character tests true,

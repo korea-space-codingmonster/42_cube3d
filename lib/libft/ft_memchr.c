@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 07:46:09 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 21:55:50 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:49:11 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:49:27 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Locates first occurrence of 'c'(converted to unsigned char) in 's'.

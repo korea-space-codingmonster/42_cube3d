@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 10:17:47 by mihykim           #+#    #+#             */
-/*   Updated: 2021/04/07 16:21:00 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:40:38 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:41:03 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Allocates (with malloc) a string representing 'n'

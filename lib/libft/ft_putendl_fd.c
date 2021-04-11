@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:56:03 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 15:58:12 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:54:54 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:55:09 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Outputs the string 's' to the given file descriptor, followed by a newline.

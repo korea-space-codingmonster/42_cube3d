@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 07:55:09 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 22:12:16 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:06:56 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:07:11 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Allocates (with malloc) a copy of 's1' with the characters

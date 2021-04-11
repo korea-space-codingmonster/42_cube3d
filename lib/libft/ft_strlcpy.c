@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 12:37:28 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/07 13:19:26 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:02:21 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:02:34 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Copies up to 'dstsize - 1' characters from string 'src' to 'dst'

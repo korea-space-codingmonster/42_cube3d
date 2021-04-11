@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 17:11:06 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/07 13:20:04 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:00:17 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:00:32 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Allocates sufficient memory for a copy of the string

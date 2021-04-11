@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 07:41:36 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 22:04:29 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:01:16 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:01:29 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Allocates (with malloc) and returns a new string,

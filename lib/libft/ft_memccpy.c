@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 06:10:28 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/15 23:08:40 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:48:28 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:48:49 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+
+#include <libft.h>
 
 /*
 ** - Copies bytes from string 'src' to string 'dst'.

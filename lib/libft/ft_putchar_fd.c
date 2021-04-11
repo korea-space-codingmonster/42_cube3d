@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:43:11 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/07 01:49:45 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:54:15 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:54:31 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Outputs the character 'c' to the given file descriptor.

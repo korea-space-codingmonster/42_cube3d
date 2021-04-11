@@ -5,12 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/01 17:34:48 by napark            #+#    #+#             */
-/*   Updated: 2021/04/08 13:58:21 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:57:06 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:57:24 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
+
+static int     ft_word_len(char *line, char sp)
+{
+    size_t count;
+
+    count = 0;
+    while (*line && *line == sp)
+        count++;
+    return (count);
+}
 
 static size_t   ft_word_count(char const *line, char sp)//space전까지 word의 수를 세주는 함수
 {
@@ -29,16 +39,6 @@ static size_t   ft_word_count(char const *line, char sp)//space전까지 word의
         while (*line && *line == sp)
             line++;
     }
-    return (count);
-}
-
-static int     ft_word_len(char *line, char sp)
-{
-    size_t count;
-
-    count = 0;
-    while (*line && *line == sp)
-        count++;
     return (count);
 }
 

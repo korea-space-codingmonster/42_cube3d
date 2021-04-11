@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:38:57 by napark            #+#    #+#             */
-/*   Updated: 2021/04/08 16:32:57 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/11 14:18:49 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,4 @@ void        check_save_option(int argc, char *argv, int *save)
 	{
 		*save = ON;//save 1
 	}
-	else
-		ft_strexit("ERROR");
 }

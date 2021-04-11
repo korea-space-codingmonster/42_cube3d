@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:58:24 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/29 22:02:19 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:55:31 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:55:46 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Outputs the integer 'n' to the given file descriptor.

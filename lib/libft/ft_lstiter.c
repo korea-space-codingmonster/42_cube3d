@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 15:25:38 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 21:53:50 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:45:23 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:45:50 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Iterates the list 'lst' and applies function 'f' to the content of

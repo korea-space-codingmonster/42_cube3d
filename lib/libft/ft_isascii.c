@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 15:52:57 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:31:49 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:37:28 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:37:44 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Tests for an ASCII character, any character btw 0 and octal 0177 inclusive.

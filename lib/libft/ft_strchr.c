@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 13:18:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 22:04:11 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:58:31 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:58:47 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Locates 'first' occurrence of 'c'(converted to a char) pointed to by 's'.

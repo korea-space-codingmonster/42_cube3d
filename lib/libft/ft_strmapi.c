@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:33:54 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/07 13:21:16 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:03:22 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:03:34 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Applies 'f' to each character of 's' to create a new string (with malloc)

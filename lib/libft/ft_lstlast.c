@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 14:42:54 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/07 13:36:20 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:46:07 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:46:25 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** Returns the last element of the list

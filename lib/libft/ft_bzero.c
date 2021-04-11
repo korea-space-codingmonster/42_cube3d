@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 05:55:00 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/15 23:09:08 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:34:24 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:34:40 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Writes 'n' zeroed bytes to the string 's'.

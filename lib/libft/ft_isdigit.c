@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 15:50:00 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 10:17:34 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:37:57 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:38:18 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Returns non-zero if the character tests true,

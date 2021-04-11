@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 15:46:15 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/09 13:13:05 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:46:38 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:47:00 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Iterates the list 'lst' and applies function 'f' to the content of

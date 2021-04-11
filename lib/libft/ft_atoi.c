@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@studenst.42seoul.kr>        +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 15:24:36 by mihykim           #+#    #+#             */
-/*   Updated: 2021/03/15 23:09:06 by napark           ###   ########.fr       */
+/*   Created: 2021/04/11 15:31:23 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:33:15 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 int		ft_atoi(const char *str)
 {
@@ -36,8 +36,3 @@ int		ft_atoi(const char *str)
 	}
 	return (atoi * sign);
 }
-
-/*
-** line 18 : changed type of atoi from 'int' to 'unsigned long int'
-** line 26 : changed from 'while' to 'if'
-*/

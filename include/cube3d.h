@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/08 17:16:02 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/09 12:20:03 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 #define OFF 0
 #define ON 1
-#define EROOR 0
+#define ERROR 0
 #define SUCCESS 1
 //#define NULL 0
 

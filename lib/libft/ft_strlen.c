@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 08:08:55 by mihykim           #+#    #+#             */
-/*   Updated: 2020/10/29 14:37:34 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:02:48 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:02:59 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Computes the length of string 's'.

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 14:57:40 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 21:52:45 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:44:47 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:45:02 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Frees the memory of an element's content using function 'del'

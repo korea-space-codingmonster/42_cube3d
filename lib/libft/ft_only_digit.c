@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_only_digit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 15:50:00 by mihykim           #+#    #+#             */
-/*   Updated: 2020/10/31 15:25:31 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:53:44 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:54:02 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 int		ft_only_digit(char *str)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strexit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/05 17:59:51 by mihykim           #+#    #+#             */
-/*   Updated: 2020/11/05 18:11:30 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:00:47 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:01:01 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 void	ft_strexit(char *str)
 {

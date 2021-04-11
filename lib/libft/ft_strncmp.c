@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 14:59:08 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 22:14:28 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:03:57 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:04:10 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Compares 's1' and 's2' in lexicographical order,

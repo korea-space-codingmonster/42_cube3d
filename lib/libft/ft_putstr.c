@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 14:32:37 by mihykim           #+#    #+#             */
-/*   Updated: 2020/10/29 14:53:22 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:56:38 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:56:50 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 void	ft_putstr(char *str)
 {

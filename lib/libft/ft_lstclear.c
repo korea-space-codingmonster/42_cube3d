@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 15:10:35 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/02 01:08:43 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:44:05 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:44:20 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Deletes and frees the given element and every successor of that element,

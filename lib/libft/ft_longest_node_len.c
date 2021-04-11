@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_longest_node.c                                  :+:      :+:    :+:   */
+/*   ft_longest_node_len.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 14:39:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/10/29 15:01:58 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 15:41:36 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 15:42:07 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 int		ft_longest_node_len(t_list *lst)
 {

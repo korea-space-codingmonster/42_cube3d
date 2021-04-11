@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 13:27:29 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 22:07:59 by mihykim          ###   ########.fr       */
+/*   Created: 2021/04/11 16:05:33 by napark            #+#    #+#             */
+/*   Updated: 2021/04/11 16:06:03 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 /*
 ** - Locates 'last' occurrence of 'c'(converted to a char) pointed to by 's'.
