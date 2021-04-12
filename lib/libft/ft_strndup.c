@@ -6,13 +6,13 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 16:04:27 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 16:04:39 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/11 18:32:50 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strndup(char *s1, size_t size)
+char	*ft_strndup(const char *s1, size_t size)
 {
 	char	*dup;
 

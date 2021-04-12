@@ -6,11 +6,12 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 15:57:06 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 15:57:24 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/11 18:38:36 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdio.h>
 
 static int     ft_word_len(char *line, char sp)
 {
@@ -57,8 +58,10 @@ char     **ft_split_count(char *line, char sp, int *word_cnt)
     size_t i;
 
     word_count = ft_word_count(line, sp);
+
     if (!(result = (char **)malloc(sizeof(char *) * (word_count + 1))))
         return (0);
+
     i = 0;
     while (i < word_count)
     {

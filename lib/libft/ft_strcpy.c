@@ -6,13 +6,13 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 15:59:31 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 15:59:53 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/11 18:35:15 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strcpy(char *dst, char *src, size_t n)
+char	*ft_strcpy(char *dst, const char *src, size_t n)
 {
 	size_t i;
 

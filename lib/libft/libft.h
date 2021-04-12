@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 15:32:17 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 15:33:35 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/11 18:35:49 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
-char				*ft_strcpy(char *dst, char *src, size_t n);
+char	*ft_strcpy(char *dst, const char *src, size_t n);
 int					ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
@@ -68,7 +68,7 @@ int					ft_isset(char c, char *set);
 void				*ft_calloc(size_t count, size_t size);
 void				ft_free_2d(char **str);
 char				*ft_strdup(const char *s1);
-char				*ft_strndup(char *s1, size_t size);
+char	*ft_strndup(const char *s1, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
