@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:11:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/12 16:38:14 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/12 17:34:15 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,18 @@ static void     start_parse(t_cube3d *s, char **split, int word_count)
     if (!ft_strcmp(split[0], "R") && word_count == 3)
         store_width_height(s, &split[1]);
     if (!ft_strcmp(split[0], "NO") && word_count == 2)
-        init_texture(s, &split[1]);
+        init_texture(s, &split[1], NO);
+    if (!ft_strcmp(split[0], "SO") && word_count == 2)
+        init_texture(s, &split[1], SO);
+    if (!ft_strcmp(split[0], "WE") && word_count == 2)
+        init_texture(s, &split[1], WE);
+    if (!ft_strcmp(split[0], "EA") && word_count == 2)
+        init_texture(s, &split[1], EA);
+    if (!ft_strcmp(split[0], "S") && word_count == 2)
+        init_texture(s, &split[1], SO);
+    if (!ft_strcmp(split[0], "F") && word_count == 2)
+        init_texture(s, &split[1], SO);
+    
         
 }
 
