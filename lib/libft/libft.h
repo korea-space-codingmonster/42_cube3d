@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 15:32:17 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 18:35:49 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/12 16:00:34 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 # define NL 1
 # define _EOF 0
-# define ERROR -1
+# define ERROR 0
 
 typedef struct		s_list
 {
@@ -97,6 +97,6 @@ int					ft_longest_node_len(t_list *lst);
 int					get_next_line(int fd, char **line);
 void				ft_strexit(char *str);
 
-char     **ft_split_count(char *line, char sp, int *word_cnt);
+char			**ft_split_cnt(char const *s, char c, int *cnt);
 
 #endif

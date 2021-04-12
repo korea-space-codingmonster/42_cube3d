@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:11:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 18:12:59 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/12 16:38:14 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,13 @@ static  int     check_path(char *argv)
         ft_strexit("ERROR : Invalid file(.cub)(check_path)");
 }
 
-static void    store_information(t_cube3d  *s, char **width, char **height)
-{
-    t_ivec  ti;
-
-    if (((s_parse_check >> R) & 1) == 1)
-        ft_strexit("ERROR : Already stock information(store_information)");
-    s_parse_check |= 1 << R;
-
-    ti.data_height = ft_atoi(width);
-    ti.data_width = ft_atoi(height);
-
-    if (ti.data_height < s->tw.height)
-        s->tw.height = ti.data_height;
-    if (ti.data_width < s->tw.width)
-        s->tw.width = ti.data_width;
-}
-
 static void     start_parse(t_cube3d *s, char **split, int word_count)
 {
     if (!ft_strcmp(split[0], "R") && word_count == 3)
-        store_information(s, split[1], split[2]);
+        store_width_height(s, &split[1]);
+    if (!ft_strcmp(split[0], "NO") && word_count == 2)
+        init_texture(s, &split[1]);
+        
 }
 
 static  void    check_parse_type(t_cube3d *s, char *line)
@@ -60,7 +46,9 @@ static  void    check_parse_type(t_cube3d *s, char *line)
 
     if (len)
     {
-        split = ft_split_count(line, ' ', &word_count);
+        
+        split = ft_split_cnt(line, ' ', &word_count);
+        printf("%c", **split);
         
         if (!split)
             ft_strexit("ERROR : Invalid file(.cub)(check_parse_type)");

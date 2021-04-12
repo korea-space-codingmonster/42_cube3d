@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/09 12:20:03 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/12 16:01:25 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #define ON 1
 #define ERROR 0
 #define SUCCESS 1
-//#define NULL 0
+///#define NULL 0
 
 # define NO 0
 # define SO 1
