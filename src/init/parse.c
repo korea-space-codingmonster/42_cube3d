@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:11:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/12 19:07:25 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/19 15:43:06 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,47 @@ static  int     check_path(char *argv)
 
 static void     start_parse(t_cube3d *s, char **split, int word_count)
 {
+    printf("start parse");
     if (!ft_strcmp(split[0], "R") && word_count == 3)
+    {
+        printf("%s %s\n",split[1], split[2]);
         store_width_height(s, &split[1]);
+    }
     else if (!ft_strcmp(split[0], "NO") && word_count == 2)
-        init_texture(s, &split[1], NO);
+    {
+        printf("%s\n",split[1]);
+        init_texture(s, split[1], NO);
+    }
     else if (!ft_strcmp(split[0], "SO") && word_count == 2)
-        init_texture(s, &split[1], SO);
+    {
+        printf("%s\n",split[1]);
+        init_texture(s, split[1], SO);
+    }
     else if (!ft_strcmp(split[0], "WE") && word_count == 2)
-        init_texture(s, &split[1], WE);
+    {
+        printf("%s\n",split[1]);
+        init_texture(s, split[1], WE);
+    }
     else if (!ft_strcmp(split[0], "EA") && word_count == 2)
-        init_texture(s, &split[1], EA);
+    {
+        printf("%s\n",split[1]);
+        init_texture(s, split[1], EA);
+    }
     else if (!ft_strcmp(split[0], "S") && word_count == 2)
-        init_texture(s, &split[1], S);
+    {
+        printf("%s\n",split[1]);
+        init_texture(s, split[1], S);
+    }
     else if (!ft_strcmp(split[0], "F") && word_count == 2)
-        init_rgb_color(s, &split[1], F);
+    {
+        printf("%s\n",split[1]);
+        init_rgb_color(s, split[1], F);
+    }
     else if (!ft_strcmp(split[0], "C") && word_count == 2)
-        init_rgb_color(s, &split[1], C);
-        
+    {
+        printf("%s\n",split[1]);
+        init_rgb_color(s, split[1], C);
+    }
 }
 
 static  void    check_parse_type(t_cube3d *s, char *line)
@@ -76,7 +100,7 @@ void    parse(t_cube3d *s, char *argv)
     if (!check_path(argv))
         ft_strexit("ERROR : Invalid file (.cub)(parse)");//아니면 exit처리
     if ((fd = open(argv, O_RDONLY)) == -1)
-        ft_strexit("EEROR : we can't open .cub file(parse)");
+        ft_strexit("ERROR : we can't open .cub file(parse)");
     while((s_parse_check != 0xFF) && (check = get_next_line(fd, &line)) >= 0)
         check_parse_type(s, line);
 }

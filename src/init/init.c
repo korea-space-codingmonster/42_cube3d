@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:40:28 by napark            #+#    #+#             */
-/*   Updated: 2021/04/08 19:51:19 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/19 15:41:22 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 void    init(t_cube3d   *s, char *argv, int save)
 {
     (void)save;
-    //s->mlx = mlx_init();
-    //mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);
+    s->mlx = mlx_init();
+    mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);
     parse(s, argv);
     // init_window(s, save);
 }

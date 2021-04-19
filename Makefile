@@ -1,9 +1,9 @@
 NAME = cube3D
 
-CC = gcc
+CC = gcc -g3 -fsanitize=address
 # CFLAGS = -Wall -Wextra -Werror -g
 
-CFLAGS = -g
+CFLAGS = 
 
 
 ###################### libft #########################

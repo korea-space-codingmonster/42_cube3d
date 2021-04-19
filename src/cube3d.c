@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:22:31 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 18:07:59 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/19 11:57:37 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int main(int argc, char **argv)
 
     if (argc < 2)
         ft_strexit("ERROR : Please enter more characters due to lack of word(main)");
-    // ./cube3D --save /map/test.cub        ./cube3D /map/test.cub
+    // ./cube3D --save ./map/test.cub        ./cube3D ./map/test.cub
     init(&s, argv[1 + save], save);
 }

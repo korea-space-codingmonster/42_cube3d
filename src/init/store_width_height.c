@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:26:12 by napark            #+#    #+#             */
-/*   Updated: 2021/04/12 16:27:24 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/19 11:43:25 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void    store_width_height(t_cube3d  *s, char **split)
     if (((s_parse_check >> R) & 1) == 1)
         ft_strexit("ERROR : Already stock information(store_information)");
     s_parse_check |= 1 << R;
-
     ti.data_width = ft_atoi(split[0]);
     ti.data_height = ft_atoi(split[1]);
     

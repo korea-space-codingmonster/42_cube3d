@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_save.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:38:57 by napark            #+#    #+#             */
-/*   Updated: 2021/04/11 14:18:49 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/19 11:53:03 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void        check_save_option(int argc, char *argv, int *save)
 {
 	if (argc > 3)
-		ft_strexit("ERROR : So many arguments exist");
+		ft_strexit("ERROR : So many arguments exist(check_save_option)");
 	if (argc < 2)
-		ft_strexit("ERROR : So few arguments exist");
+		ft_strexit("ERROR : So few arguments exist(check_save_option)");
 	if (argc == 1)
 	{
 		*save = OFF;//save 0
