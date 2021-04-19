@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/19 11:13:12 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/19 17:57:54 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,12 @@ typedef struct s_img
     int     line;
 }               t_img;
 
+typedef struct  s_map
+{
+    char **data;
+    int     width;
+    int     hight;
+}               t_map;
 
 typedef struct  s_cube3d
 {
@@ -91,6 +97,7 @@ typedef struct  s_cube3d
     t_img       timg;
     t_img       path[7];
     t_color     tc[2];
+    t_map       map;
     void *mlx;
     void *win;
 }               t_cube3d;
@@ -101,3 +108,4 @@ void    parse(t_cube3d *s, char *argv);
 void    init_rgb_color(t_cube3d *s, char *path, char info_FC);
 void    init_texture(t_cube3d *s, char *path, char direc);
 void    store_width_height(t_cube3d  *s, char **split);
+void    init_map(t_cube3d *s, int fd, char *line, int *check);

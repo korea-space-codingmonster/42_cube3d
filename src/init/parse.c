@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:11:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/19 15:43:06 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/19 16:03:06 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static void     start_parse(t_cube3d *s, char **split, int word_count)
         printf("%s\n",split[1]);
         init_rgb_color(s, split[1], C);
     }
+    else
+        ft_strexit("ERROR : Invalide map file(start_parse)");
 }
 
 static  void    check_parse_type(t_cube3d *s, char *line)
@@ -103,4 +105,9 @@ void    parse(t_cube3d *s, char *argv)
         ft_strexit("ERROR : we can't open .cub file(parse)");
     while((s_parse_check != 0xFF) && (check = get_next_line(fd, &line)) >= 0)
         check_parse_type(s, line);
+    if (check < 0)
+        ft_strexit("ERROR : we can't read map file(parse)");
+    while ((check = get_next_line(fd, &line)) > 0 && !ft_strlen(line))
+        free(line);
+    init_map(s, fd, line, &check);
 }
