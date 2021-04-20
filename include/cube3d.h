@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/19 17:57:54 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/20 14:16:43 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,13 @@ typedef struct  s_cube3d
     void *win;
 }               t_cube3d;
 
+typedef struct  s_ivec
+{
+    int x;
+    int y;
+}               t_ivec;
+
+
 void        check_save_option(int argc, char *argv, int *save);
 void    init(t_cube3d   *s, char *argv, int save);
 void    parse(t_cube3d *s, char *argv);
@@ -109,3 +116,4 @@ void    init_rgb_color(t_cube3d *s, char *path, char info_FC);
 void    init_texture(t_cube3d *s, char *path, char direc);
 void    store_width_height(t_cube3d  *s, char **split);
 void    init_map(t_cube3d *s, int fd, char *line, int *check);
+t_ivec   new_ivec(int x, int y);

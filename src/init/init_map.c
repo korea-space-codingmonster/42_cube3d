@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:59:00 by napark            #+#    #+#             */
-/*   Updated: 2021/04/19 18:01:36 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/20 18:07:19 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,40 @@ static void init_map_parsing(t_cube3d *s, int fd, char *line, int *check)
     make_map_setup(s, hight, width, curr);//가로, 세로
 }
 
+static void     check_map_validate(t_cube3d *s, t_ivec point)
+{
+    t_map   *map;
+
+    map = &s->map;
+    if (!ft_strchr(" 012NSWE", map->data[point.y][point.x]) ||
+            ((point.y == 0 || point.x == 0 || point.y == map->hight - 1 || point.x == map->width - 1) && 
+            !ft_strchr(" 1", map->data[point.y][point.x])))
+            ft_strexit("ERROR : Invalid map file(check_map_validate)");
+    if (map->data[point.y][point.x] == ' ')
+    {
+        if ((point.y != 0 && !ft_strchr(" 1", map->data[point.y - 1][point.x])) ||
+                (point.x != 0 && !ft_strchr(" 1", map->data[point.y][point.x - 1])) ||
+                (point.y < map->hight && !ft_strchr(" 1", map->data[point.y + 1][point.x])) ||
+                (point.x < map->width && !ft_strchr(" 1", map->data[point.y][point.x + 1])))
+                ft_strexit("ERROR : Invalide map format(check_map_validate)");
+    }
+}
+
 void    init_map(t_cube3d *s, int fd, char *line, int *check)
 {
+    // 1. 맵 파싱 및 삽입
+    // 2. 맵 유효성 검사
+    int check_point;
+
     init_map_parsing(s, fd, line, check);
+
+    check_point = 0;
+    while (check_point < s->map.width * s->map.hight)
+    {
+        check_map_validate(s, new_ivec(check_point % s->map.width, check_point / s->map.hight));
+        
+        check_point++;
+    }
+
+    
 }
