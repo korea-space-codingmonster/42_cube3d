@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/21 01:43:13 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/22 02:07:49 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ typedef struct  s_cube3d
     void *win;
     float     fov;
     float     fov_h;
+    t_vec   player_position;
+    t_vec   player_direction;
+    t_vec   plane_vector;
 
 }               t_cube3d;
 
@@ -113,6 +116,11 @@ typedef struct  s_ivec
     int y;
 }               t_ivec;
 
+typedef struct  s_vec
+{
+    int x;
+    int y;
+}               t_vec;
 
 void        check_save_option(int argc, char *argv, int *save);
 void    init(t_cube3d   *s, char *argv, int save);
@@ -122,3 +130,5 @@ void    init_texture(t_cube3d *s, char *path, char direc);
 void    store_width_height(t_cube3d  *s, char **split);
 void    init_map(t_cube3d *s, int fd, char *line, int *check);
 t_ivec   new_ivec(int x, int y);
+t_vec   new_vec(float x, float y);
+t_vec   rot_vec(t_vec v, float angle);

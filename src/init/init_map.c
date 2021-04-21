@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:59:00 by napark            #+#    #+#             */
-/*   Updated: 2021/04/22 01:04:42 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/22 01:10:22 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ void    init_map(t_cube3d *s, int fd, char *line, int *check)
     {
         printf("%d %d", s->map.width, s->map.hight);
         check_map_validate(s, new_ivec(check_point % s->map.width, check_point / s->map.hight));
-        // if (ft_strchr("NSWE", s->map.data[check_point / s->map.width][check_point % s->map.width]))
-        //     init_player(s, new_vec(check_point % s->map.width + 0.5, check_point / s->map.width + 0.5), &flag);
+        if (ft_strchr("NSWE", s->map.data[check_point / s->map.width][check_point % s->map.width]))
+             init_player(s, new_vec(check_point % s->map.width + 0.5, check_point / s->map.width + 0.5), &flag);
         check_point++;
     }
     // if (!flag)
