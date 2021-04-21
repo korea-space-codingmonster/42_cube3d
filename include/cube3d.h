@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/20 20:03:12 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/21 01:43:13 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # define C 6
 # define R 7
 
+# define FOV 66
+# define M_PI_180 0.017453292519943295769236907684886
+
 typedef unsigned char t_uc;
 typedef unsigned int  t_ui;
 extern  t_uc s_parse_check;
@@ -57,7 +60,6 @@ typedef struct s_ivec
     int     data_width;
     int     data_height;
 }               t_ivec;
-
 
 typedef union   u_color
 {
@@ -98,10 +100,10 @@ typedef struct  s_cube3d
     t_img       path[7];
     t_color     tc[2];
     t_map       map;
-    t_vec       position;
-    t_vec       dir;
     void *mlx;
     void *win;
+    float     fov;
+    float     fov_h;
 
 }               t_cube3d;
 
@@ -111,11 +113,6 @@ typedef struct  s_ivec
     int y;
 }               t_ivec;
 
-typedef struct  s_vec
-{
-    float   x;
-    float   y;
-}               t_vec;
 
 void        check_save_option(int argc, char *argv, int *save);
 void    init(t_cube3d   *s, char *argv, int save);
@@ -125,4 +122,3 @@ void    init_texture(t_cube3d *s, char *path, char direc);
 void    store_width_height(t_cube3d  *s, char **split);
 void    init_map(t_cube3d *s, int fd, char *line, int *check);
 t_ivec   new_ivec(int x, int y);
-t_vec   new_vec(float x, float y);
