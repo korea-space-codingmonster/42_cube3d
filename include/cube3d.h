@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/22 02:07:49 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/23 01:22:37 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ typedef unsigned char t_uc;
 typedef unsigned int  t_ui;
 extern  t_uc s_parse_check;
 
-
-
 typedef struct s_window
 {
     int width;
@@ -54,12 +52,24 @@ typedef struct  s_window_size
     int y;
 }               t_window_size;
 
-//cubfile width, height
-typedef struct s_ivec
+typedef struct  s_ivec
 {
-    int     data_width;
-    int     data_height;
+    int     x;
+    int     y;
 }               t_ivec;
+
+// typedef struct  s_vec
+// {
+//     float x;
+//     float y;
+// }               t_vec;
+
+// //cubfile width, height
+// typedef struct s_ivec
+// {
+//     int     data_width;
+//     int     data_height;
+// }               t_ivec;
 
 typedef union   u_color
 {
@@ -88,39 +98,45 @@ typedef struct s_img
 
 typedef struct  s_map
 {
-    char **data;
+    char    **data;
     int     width;
     int     hight;
 }               t_map;
 
+// typedef struct s_sprite
+// {
+//     t_vec   position;
+//     t_vec   transform;
+//     t_img   *tex;
+// }               t_sprite;
+
 typedef struct  s_cube3d
 {
     t_window    tw;
+
     t_img       timg;
     t_img       path[7];
+
     t_color     tc[2];
+
     t_map       map;
+
     void *mlx;
     void *win;
+
     float     fov;
     float     fov_h;
-    t_vec   player_position;
-    t_vec   player_direction;
-    t_vec   plane_vector;
+
+    // t_vec       player_position;
+    // t_vec       player_direction;
+    // t_vec       plane_vector;
+
+    int         num_sp;
+    int         *sp_order;
+    float       *sp_dist;
+    // t_sprite    *ts;
 
 }               t_cube3d;
-
-typedef struct  s_ivec
-{
-    int x;
-    int y;
-}               t_ivec;
-
-typedef struct  s_vec
-{
-    int x;
-    int y;
-}               t_vec;
 
 void        check_save_option(int argc, char *argv, int *save);
 void    init(t_cube3d   *s, char *argv, int save);
@@ -129,6 +145,10 @@ void    init_rgb_color(t_cube3d *s, char *path, char info_FC);
 void    init_texture(t_cube3d *s, char *path, char direc);
 void    store_width_height(t_cube3d  *s, char **split);
 void    init_map(t_cube3d *s, int fd, char *line, int *check);
+
 t_ivec   new_ivec(int x, int y);
-t_vec   new_vec(float x, float y);
-t_vec   rot_vec(t_vec v, float angle);
+//t_vec   new_vec(float x, float y);
+//t_vec   rot_vec(t_vec v, float angle);
+
+//void    init_player(t_cube3d *s, t_vec  point,  int *flag);
+//void    init_sprite(t_cube3d *s);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:11:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/19 16:03:06 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/22 22:22:47 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static  void    check_parse_type(t_cube3d *s, char *line)
 
     if (len)
     {
-        
         split = ft_split_cnt(line, ' ', &word_count);
         
         if (!split)
@@ -110,4 +109,5 @@ void    parse(t_cube3d *s, char *argv)
     while ((check = get_next_line(fd, &line)) > 0 && !ft_strlen(line))
         free(line);
     init_map(s, fd, line, &check);
+    // init_sprite(s);
 }

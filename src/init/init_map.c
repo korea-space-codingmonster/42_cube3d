@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:59:00 by napark            #+#    #+#             */
-/*   Updated: 2021/04/22 01:10:22 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/23 01:30:32 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void make_map_set(t_cube3d *s, int width, int hight, t_list *lst)
         ft_strexit("ERROR : allocation memory for setup memory error(make_map_setup)");
     s->map.width = width;
     s->map.hight = hight;
-
     i = -1;
     while (++i < hight)
     {
@@ -56,7 +55,6 @@ static void init_map_parsing(t_cube3d *s, int fd, char *line, int *check)
     if (*check == -1)
         ft_strexit("ERROR : read map and parsing error(init_map_parsing)");
     free(line);
-    hight = ft_lstsize(curr);//세로 길이
     make_map_set(s, width, hight, curr);
 }
 
@@ -66,35 +64,42 @@ static void     check_map_validate(t_cube3d *s, t_ivec point)
 
     map = &s->map;
     if (!ft_strchr(" 012NSWE", map->data[point.y][point.x]) ||
-        ((point.y == 0 || point.x == 0 || point.y == map->hight - 1 || point.x == map->width - 1) &&
-        !ft_strchr(" 1", map->data[point.y][point.x])))
-        ft_strexit("ERROR : Invalid map format!(check_map_validate)");
+            ((point.y == 0 || point.x == 0 || point.y == map->hight - 1 || point.x == map->width - 1) &&
+            !ft_strchr(" 1", map->data[point.y][point.x])))
+            ft_strexit("Invalid map file(check_map_validate)");
     if (map->data[point.y][point.x] == ' ')
     {
         if ((point.y != 0 && !ft_strchr(" 1", map->data[point.y - 1][point.x])) ||
-            (point.x != 0 && !ft_strchr(" 1", map->data[point.y][point.x - 1])) ||
-            (point.y < map->hight - 1 && !ft_strchr(" 1", map->data[point.y + 1][point.x])) ||
-            (point.x < map->width - 1 && !ft_Strchr(" 1", map->data[point.y][point.x + 1])))
-            ft_strexit("ERROR : Invalid map format(check_map_validate)");
+                (point.x != 0 && !ft_strchr(" 1", map->data[point.y][point.x - 1])) ||
+                (point.y < map->hight - 1 && !ft_strchr(" 1", map->data[point.y + 1][point.x])) ||
+                (point.x < map->width - 1 && !ft_strchr(" 1", map->data[point.y][point.x + 1])))
+                ft_strexit("ERROR : Invalid map format(check_map_validate)");
     }
+}
+
+t_ivec   new_ivec(int x, int y)
+{
+    t_ivec  result;
+
+    result.x = x;
+    result.y = y;
+    return (result);
 }
 
 void    init_map(t_cube3d *s, int fd, char *line, int *check)
 {
     // 1. 맵 파싱 및 삽입
     // 2. 맵 유효성 검사
-    int check_point;
-    int flag;
+    int     check_point;
+    int     flag;
 
     init_map_parsing(s, fd, line, check);
-
     check_point = 0;
     while (check_point < s->map.width * s->map.hight)
     {
-        printf("%d %d", s->map.width, s->map.hight);
-        check_map_validate(s, new_ivec(check_point % s->map.width, check_point / s->map.hight));
-        if (ft_strchr("NSWE", s->map.data[check_point / s->map.width][check_point % s->map.width]))
-             init_player(s, new_vec(check_point % s->map.width + 0.5, check_point / s->map.width + 0.5), &flag);
+        check_map_validate(s, new_ivec(check_point % s->map.width, check_point / s->map.width));
+        // if (ft_strchr("NSWE", s->map.data[check_point / s->map.width][check_point % s->map.width]))
+        //      init_player(s, new_vec(check_point % s->map.width + 0.5, check_point / s->map.width + 0.5), &flag);
         check_point++;
     }
     // if (!flag)
