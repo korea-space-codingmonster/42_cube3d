@@ -1,6 +1,6 @@
 NAME = cube3D
 
-CC = gcc -g3 -fsanitize=address
+CC = gcc -g -fsanitize=address
 # CFLAGS = -Wall -Wextra -Werror -g
 
 CFLAGS = 
@@ -55,15 +55,26 @@ UTIL_SRCS = $(wildcard $(UTIL_DIR)/*.c)
 INIT_DIR = $(SRC_DIR)/init
 INIT_SRCS = $(wildcard $(INIT_DIR)/*.c)
 
+CAL_DIR = $(SRC_DIR)/cal
+CAL_SRCS = $(wildcard $(CAL_DIR)/*.c)
+
+KEY_DIR = $(SRC_DIR)/key_event
+KEY_SRCS = $(wildcard $(KEY_DIR)/*.c)
+
 SRCS = \
 		$(wildcard $(SRC_DIR)/*.c) \
 		$(UTIL_SRCS) \
 		$(INIT_SRCS) \
+		$(CAL_SRCS)  \
+		$(KEY_SRCS)  \
+
 
 vpath %.c \
 		$(SRC_DIR) \
 		$(UTIL_DIR) \
 		$(INIT_DIR) \
+		$(CAL_DIR)	\
+		$(KEY_DIR)  \
 
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))

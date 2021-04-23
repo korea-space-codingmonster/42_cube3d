@@ -8,6 +8,7 @@
       "cub3d_bonus.h": "c",
       "string": "c",
       "__node_handle": "c",
-      "__locale": "c"
+      "__locale": "c",
+      "cube3d.h": "c"
     }
   }

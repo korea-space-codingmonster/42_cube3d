@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:11:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/22 22:22:47 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/23 18:54:41 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,6 @@ void    parse(t_cube3d *s, char *argv)
     while ((check = get_next_line(fd, &line)) > 0 && !ft_strlen(line))
         free(line);
     init_map(s, fd, line, &check);
-    // init_sprite(s);
+    init_sprite(s);
+    close(fd);
 }

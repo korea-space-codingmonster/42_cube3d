@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/23 01:22:37 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/23 20:22:12 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <libft.h>
 #include <mlx.h>
 
+#define CUBE3D_TITLE "napark's cube3d"
+#define WALL_STRIP_WIDTH 1
 #define OFF 0
 #define ON 1
 #define ERROR 0
@@ -35,6 +37,31 @@
 
 # define FOV 66
 # define M_PI_180 0.017453292519943295769236907684886
+
+# define X_KEY_PRESS 2
+# define X_KEY_RELEASE 3
+# define X_DESTROY_NOTIFY 17
+
+# ifdef __APPLE__ 
+# define X_KEY_PRESS_MASK 0
+# define X_KEY_RELEASE_MASK 0
+# define X_SUB_STRUCTURE_NOTIFY_MASK 0 
+#else
+#  define X_KEY_PRESS_MASK 1
+#  define X_KEY_RELEASE_MASK 2
+#  define X_SUB_STRUCTURE_NOTIFY_MASK 524288
+# endif
+
+# define KEY_W		13
+# define KEY_A		0
+# define KEY_S		1
+# define KEY_D		2
+# define KEY_ESC	53
+# define KEY_UP		126
+# define KEY_DOWN	125
+# define KEY_LEFT	123
+# define KEY_RIGHT	124
+
 
 typedef unsigned char t_uc;
 typedef unsigned int  t_ui;
@@ -58,11 +85,11 @@ typedef struct  s_ivec
     int     y;
 }               t_ivec;
 
-// typedef struct  s_vec
-// {
-//     float x;
-//     float y;
-// }               t_vec;
+typedef struct  s_vec
+{
+    float x;
+    float y;
+}               t_vec;
 
 // //cubfile width, height
 // typedef struct s_ivec
@@ -96,6 +123,20 @@ typedef struct s_img
     int     line;
 }               t_img;
 
+typedef struct s_key
+{
+    char    w       :1;
+    char    a       :1;
+    char    s       :1;
+    char    d       :1;
+    char    up      :1;
+    char    down    :1;
+    char    left    :1;
+    char    right   :1;
+    char    esc     :1;
+}                   t_key;
+
+
 typedef struct  s_map
 {
     char    **data;
@@ -103,12 +144,22 @@ typedef struct  s_map
     int     hight;
 }               t_map;
 
-// typedef struct s_sprite
-// {
-//     t_vec   position;
-//     t_vec   transform;
-//     t_img   *tex;
-// }               t_sprite;
+typedef struct s_rays
+{
+    t_vec   dir;
+    t_ivec  map;
+    float   dist;
+    char    side;
+    t_img   *tex;
+}               t_rays;
+
+
+typedef struct s_sprite
+{
+    t_vec   position;
+    t_vec   transform;
+    t_img   *tex;
+}               t_sprite;
 
 typedef struct  s_cube3d
 {
@@ -127,15 +178,19 @@ typedef struct  s_cube3d
     float     fov;
     float     fov_h;
 
-    // t_vec       player_position;
-    // t_vec       player_direction;
-    // t_vec       plane_vector;
+    t_vec       player_position;
+    t_vec       player_direction;
+    t_vec       plane_vector;
 
     int         num_sp;
     int         *sp_order;
     float       *sp_dist;
-    // t_sprite    *ts;
+    t_sprite    *ts;
 
+    int    num_rays;
+    t_rays  *rays;
+    
+    t_key   key;
 }               t_cube3d;
 
 void        check_save_option(int argc, char *argv, int *save);
@@ -145,10 +200,15 @@ void    init_rgb_color(t_cube3d *s, char *path, char info_FC);
 void    init_texture(t_cube3d *s, char *path, char direc);
 void    store_width_height(t_cube3d  *s, char **split);
 void    init_map(t_cube3d *s, int fd, char *line, int *check);
+void    init_player(t_cube3d *s, t_vec point, int *flag);
+void    init_sprite(t_cube3d *s);
 
 t_ivec   new_ivec(int x, int y);
-//t_vec   new_vec(float x, float y);
-//t_vec   rot_vec(t_vec v, float angle);
+t_vec    new_vec(float x, float y);
+t_vec   rot_vec(t_vec v, float angle);
 
+int    handle_key_pressed(int  keycode, t_cube3d *s);
+int     handle_key_released(int keycode, t_cube3d *s);
+int		handle_exit_window(t_cube3d *s);
 //void    init_player(t_cube3d *s, t_vec  point,  int *flag);
 //void    init_sprite(t_cube3d *s);
