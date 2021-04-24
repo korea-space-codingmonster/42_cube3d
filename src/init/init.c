@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:40:28 by napark            #+#    #+#             */
-/*   Updated: 2021/04/23 19:17:46 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/24 11:42:30 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ static void     init_window(t_cube3d *s, int save)
 
 void    init(t_cube3d   *s, char *argv, int save)
 {
-    (void)save;
-    s->mlx = mlx_init();
+    (!(s->mlx = mlx_init()) ? ft_strexit("ERROR : fail mlx_init()") : 0);
     mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);
     parse(s, argv);
     init_window(s, save);

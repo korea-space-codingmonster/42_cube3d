@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:11:11 by napark            #+#    #+#             */
-/*   Updated: 2021/04/23 18:54:41 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/24 11:39:03 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ static  int     check_path(char *argv)
     
     len = ft_strlen(argv);
     if (len < 4)
-        ft_strexit("ERROR : Invalide start syntext! rewrite start!(check_path)");
+        return (ERROR);
     if (argv[len - 1] == 'b' && argv[len - 2] == 'u' && argv[len - 3] == 'c' && argv[len - 4] == '.')
-            return (SUCCESS);
-    else
-        ft_strexit("ERROR : Invalid file(.cub)(check_path)");
+        return (SUCCESS);
+    return (ERROR);
 }
 
 static void     start_parse(t_cube3d *s, char **split, int word_count)

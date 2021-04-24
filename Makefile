@@ -1,10 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/04/24 14:08:11 by napark            #+#    #+#              #
+#    Updated: 2021/04/24 14:08:30 by napark           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = cube3D
 
-CC = gcc -g -fsanitize=address
-# CFLAGS = -Wall -Wextra -Werror -g
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-CFLAGS = 
+# CFLAGS := -g3 #-fsanitize=address=address
 
+# ifneq ($(DEBUG), true)
+# 		CFLAGS := -03
+# endif
 
 ###################### libft #########################
 LIBFT = libft.a
@@ -14,6 +29,10 @@ LIBFT_INC_DIR = $(LIBFT_DIR)
 LIBFT_FLAGS = -L./$(LIBFT_DIR) -lft
 CINCLUDES += -I $(LIBFT_INC_DIR)
 #####################################################
+
+ifeq ($(DEBUG), true)
+		CDEBUG = -g
+endif
 
 ###################### minilibx #####################
 UNAME_S := $(shell uname -s)
@@ -61,12 +80,20 @@ CAL_SRCS = $(wildcard $(CAL_DIR)/*.c)
 KEY_DIR = $(SRC_DIR)/key_event
 KEY_SRCS = $(wildcard $(KEY_DIR)/*.c)
 
+UPDATE_DIR = $(SRC_DIR)/update
+UPDATE_SRCS = $(wildcard $(UPDATE_DIR)/*.c)
+
+RENDER_DIR = $(SRC_DIR)/rendering
+RENDER_SRCS = $(wildcard $(RENDER_DIR)/*.c)
+
 SRCS = \
 		$(wildcard $(SRC_DIR)/*.c) \
 		$(UTIL_SRCS) \
 		$(INIT_SRCS) \
 		$(CAL_SRCS)  \
 		$(KEY_SRCS)  \
+		${UPDATE_SRCS} \
+		${RENDER_SRCS}	\
 
 
 vpath %.c \
@@ -75,7 +102,17 @@ vpath %.c \
 		$(INIT_DIR) \
 		$(CAL_DIR)	\
 		$(KEY_DIR)  \
+		${UPDATE_DIR} \
+		${RENDER_DIR} \
 
+ifeq ($(UNAME_S),Darwin)
+	SRCS += $(wildcard $(SRC_DIR)/dummy_mac/*.c)
+	BONUS_SRCS += $(wildcard $(SRC_BONUS_DIR)/dummy_mac/*.c)
+
+	vpath %.c \
+		$(SRC_DIR)/dummy_mac \
+		$(SRC_BONUS_DIR)/dummy_mac
+endif
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 

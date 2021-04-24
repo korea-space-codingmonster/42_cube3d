@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 19:26:46 by napark            #+#    #+#             */
-/*   Updated: 2021/04/23 20:22:16 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/24 11:29:46 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int		handle_exit_window(t_cube3d *s)
 	return (0);
 }
 
-// int		handle_loop(t_cube3d *s)
-// {
-// 	update(s);
-// 	render(s);
-// 	mlx_put_image_to_window(s->mlx, s->win, s->timg.ptr, 0, 0);
-// 	mlx_do_sync(s->mlx);
-// 	return (0);
-// }
+int		handle_loop(t_cube3d *s)
+{
+	update(s);
+	rendering(s);
+	mlx_put_image_to_window(s->mlx, s->win, s->timg.ptr, 0, 0);
+	mlx_do_sync(s->mlx);
+	return (0);
+}

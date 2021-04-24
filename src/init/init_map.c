@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:59:00 by napark            #+#    #+#             */
-/*   Updated: 2021/04/24 01:25:19 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/24 14:05:41 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void init_map_parsing(t_cube3d *s, int fd, char *line, int *check)
     t_list  *curr;
     t_list  *temp;
 
+    hight = 0;
     width = ft_strlen(line);//가로 길이
     if (!(curr = ft_lstnew(line)))
         ft_strexit("ERROR : we can't create new_list(init_map_parsing-curr)");

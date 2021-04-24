@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:44:15 by napark            #+#    #+#             */
-/*   Updated: 2021/04/23 20:22:12 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/24 14:02:51 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,17 @@
 # define KEY_LEFT	123
 # define KEY_RIGHT	124
 
+# define TURN_S   3
+# define WALK_S   0.08
+
+# define V_MOVE 0.0
+# define U_DIV  1
+# define V_DIV  1
+# define V_MOVE 0.0
 
 typedef unsigned char t_uc;
 typedef unsigned int  t_ui;
+
 extern  t_uc s_parse_check;
 
 typedef struct s_window
@@ -110,6 +118,7 @@ typedef union   u_color
     int         i;
 }               t_color;
 
+extern  t_color s_color;
 //realwindow width, height
 typedef struct s_img
 {
@@ -206,9 +215,31 @@ void    init_sprite(t_cube3d *s);
 t_ivec   new_ivec(int x, int y);
 t_vec    new_vec(float x, float y);
 t_vec   rot_vec(t_vec v, float angle);
+void	normalise_pos(t_cube3d *s, t_vec *pos);
+void	normalise_ipos(t_cube3d *s, t_ivec *pos);
 
 int    handle_key_pressed(int  keycode, t_cube3d *s);
 int     handle_key_released(int keycode, t_cube3d *s);
 int		handle_exit_window(t_cube3d *s);
-//void    init_player(t_cube3d *s, t_vec  point,  int *flag);
-//void    init_sprite(t_cube3d *s);
+int		handle_loop(t_cube3d *s);
+
+void    update(t_cube3d *s);
+void    update_player(t_cube3d *s);
+void    update_all_rays(t_cube3d *s);
+void    update_sprite(t_cube3d *s);
+
+void    rendering(t_cube3d *s);
+void    render_floor(t_cube3d *s);
+void    render_ceiling(t_cube3d *s);
+void    render_wall(t_cube3d *s);
+void    render_sprite(t_cube3d *s);
+void    render_sprite_tex(t_cube3d *s, t_sprite *sp, t_ivec size, t_ivec move);
+
+t_color	calc_rgba(t_color background, t_color color);
+t_color	rgba(t_uc r, t_uc g, t_uc b, float a);
+void	color_rgba(t_uc r, t_uc g, t_uc b, float a);
+
+void		line(t_img *view, t_vec a, t_vec b);
+void		rect(t_img *view, t_vec position, int width, int height);
+void		mid_point_rect(t_img *view, t_vec position, int width, int height);
+void		put_pixel(t_img *view, int x, int y);

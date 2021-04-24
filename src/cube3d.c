@@ -6,7 +6,7 @@
 /*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:22:31 by napark            #+#    #+#             */
-/*   Updated: 2021/04/23 20:23:03 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/24 14:03:16 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int main(int argc, char **argv)
     mlx_hook(s.win, X_KEY_PRESS, X_KEY_PRESS_MASK, handle_key_pressed, &s);
     mlx_hook(s.win, X_KEY_PRESS, X_KEY_RELEASE_MASK, handle_key_released, &s);
     mlx_hook(s.win, X_DESTROY_NOTIFY, X_SUB_STRUCTURE_NOTIFY_MASK, handle_exit_window, &s);
-//    mlx_loop_hook(s.mlx, handle_loop, &s);
+    mlx_loop_hook(s.mlx, handle_loop, &s);
+    mlx_loop(s.mlx);
+    return (0);
 }
