@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/24 01:31:40 by napark            #+#    #+#             */
-/*   Updated: 2021/04/24 02:49:15 by napark           ###   ########.fr       */
+/*   Created: 2021/04/25 02:03:19 by napark            #+#    #+#             */
+/*   Updated: 2021/04/28 17:16:19 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cube3d.h>
+#include <cub3d.h>
 
-void    update(t_cube3d *s)
+void	update(t_cube3d *s)
 {
-    update_player(s);
-    update_all_rays(s);
-    update_sprite(s);
+	update_player(s);
+	update_all_rays(s);
+	update_sprite(s);
 }

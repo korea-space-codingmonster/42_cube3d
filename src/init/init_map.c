@@ -3,97 +3,94 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 15:59:00 by napark            #+#    #+#             */
-/*   Updated: 2021/04/24 14:05:41 by napark           ###   ########.fr       */
+/*   Created: 2021/04/24 15:50:23 by napark            #+#    #+#             */
+/*   Updated: 2021/04/28 17:15:27 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cube3d.h>
+#include <cub3d.h>
 
-static void make_map_set(t_cube3d *s, int width, int hight, t_list *lst)
+static void	init_map_setup(t_cube3d *s, int size, int max, t_list *lst)
 {
-    t_list *curr;
-    int i;
+	t_list	*curr;
+	int		i;
 
-    curr = lst;
-    if (!(s->map.data = malloc(sizeof(char **) * hight)))
-        ft_strexit("ERROR : allocation memory for setup memory error(make_map_setup)");
-    s->map.width = width;
-    s->map.hight = hight;
-    i = -1;
-    while (++i < hight)
-    {
-        if (!(s->map.data[i] = malloc(width + 1)))
-            ft_strexit("ERROR : allocation memry for setup map error(make_map_setup)");
-        ft_memset(s->map.data[i], ' ', width);
-        ft_memmove(s->map.data[i], curr->content, ft_strlen(curr->content));
-        s->map.data[i][width] = 0;
-        curr = curr->next;
-    }
-    ft_lstclear(&lst, free);
+	curr = lst;
+	if (!(s->map.data = malloc(sizeof(char **) * size)))
+		exit_cub3d_msg(s, "ERROR : allocate memory fail(init_map_setup)");
+	s->map.w = max;
+	s->map.h = size;
+	i = -1;
+	while (++i < size)
+	{
+		if (!(s->map.data[i] = malloc(max + 1)))
+			exit_cub3d_msg(s, "ERROR : allocate memory fail(init_map_setup)");
+		ft_memset(s->map.data[i], ' ', max);
+		ft_memmove(s->map.data[i], curr->content, ft_strlen(curr->content));
+		s->map.data[i][max] = 0;
+		curr = curr->next;
+	}
+	ft_lstclear(&lst, free);
 }
 
-static void init_map_parsing(t_cube3d *s, int fd, char *line, int *check)
+static void	init_map_parsing(t_cube3d *s, int fd, char *line, int *check)
 {
-    int hight;
-    int width;
-    t_list  *curr;
-    t_list  *temp;
+	int		max;
+	t_list	*curr;
+	t_list	*tmp;
 
-    hight = 0;
-    width = ft_strlen(line);//가로 길이
-    if (!(curr = ft_lstnew(line)))
-        ft_strexit("ERROR : we can't create new_list(init_map_parsing-curr)");
-    while ((*check = get_next_line(fd, &line)) >= 0 && ft_strlen(line))
-    {
-        if (!(temp = ft_lstnew(line)))
-            ft_strexit("ERROR : we can't create new_list(init_map_parsing-temp)");
-        ft_lstadd_back(&curr, temp);
-        width = width > (int)ft_strlen(line) ? width : ft_strlen(line);
-    }
-    if (*check == -1)
-        ft_strexit("ERROR : read map and parsing error(init_map_parsing)");
-    free(line);
-    make_map_set(s, width, hight, curr);
+	if (!(curr = ft_lstnew(line)))
+		exit_cub3d_msg(s, "ERROR : linked list fail(init_map_parsing)");
+	max = ft_strlen(line);
+	while ((*check = get_next_line(fd, &line)) >= 0 && ft_strlen(line))
+	{
+		if (!(tmp = ft_lstnew(line)))
+			exit_cub3d_msg(s, "ERROR : linked list fail(init_map_parsing)");
+		ft_lstadd_back(&curr, tmp);
+		max = max > (int)ft_strlen(line) ? max : ft_strlen(line);
+	}
+	if (*check == -1)
+		exit_cub3d_msg(s, "ERROR : exit_cube3d_msg(init_map_parsing)");
+	free(line);
+	init_map_setup(s, ft_lstsize(curr), max, curr);
 }
 
-static void     check_map_validate(t_cube3d *s, t_ivec point)
+static void	check_map(t_cube3d *s, t_ivec p)
 {
-    t_map   *map;
+	t_map	*m;
 
-    map = &s->map;
-    if (!ft_strchr(" 012NSWE", map->data[point.y][point.x]) ||
-            ((point.y == 0 || point.x == 0 || point.y == map->hight - 1 || point.x == map->width - 1) &&
-            !ft_strchr(" 1", map->data[point.y][point.x])))
-            ft_strexit("Invalid map file(check_map_validate)");
-    if (map->data[point.y][point.x] == ' ')
-    {
-        if ((point.y != 0 && !ft_strchr(" 1", map->data[point.y - 1][point.x])) ||
-                (point.x != 0 && !ft_strchr(" 1", map->data[point.y][point.x - 1])) ||
-                (point.y < map->hight - 1 && !ft_strchr(" 1", map->data[point.y + 1][point.x])) ||
-                (point.x < map->width - 1 && !ft_strchr(" 1", map->data[point.y][point.x + 1])))
-                ft_strexit("ERROR : Invalid map format(check_map_validate)");
-    }
+	m = &s->map;
+	if (!ft_strchr(" 012NSWE", m->data[p.y][p.x]) ||
+		((p.y == 0 || p.x == 0 || p.y == m->h - 1 || p.x == m->w - 1) &&
+		!ft_strchr(" 1", m->data[p.y][p.x])))
+		exit_cub3d_msg(s, "invaild map file");
+	if (m->data[p.y][p.x] == ' ')
+	{
+		if ((p.y != 0 && !ft_strchr(" 1", m->data[p.y - 1][p.x])) ||
+			(p.x != 0 && !ft_strchr(" 1", m->data[p.y][p.x - 1])) ||
+			(p.y < m->h - 1 && !ft_strchr(" 1", m->data[p.y + 1][p.x])) ||
+			(p.x < m->w - 1 && !ft_strchr(" 1", m->data[p.y][p.x + 1])))
+			exit_cub3d_msg(s, "invaild map file");
+	}
 }
 
-void    init_map(t_cube3d *s, int fd, char *line, int *check)
+void		init_map(t_cube3d *s, int fd, char *line, int *check)
 {
-    // 1. 맵 파싱 및 삽입
-    // 2. 맵 유효성 검사
-    int     check_point;
-    int     flag;
+	int		i;
+	int		flag;
 
-    init_map_parsing(s, fd, line, check);
-    check_point = 0;
-    while (check_point < s->map.width * s->map.hight)
-    {
-        check_map_validate(s, new_ivec(check_point % s->map.width, check_point / s->map.width));
-        if (ft_strchr("NSWE", s->map.data[check_point / s->map.width][check_point % s->map.width]))
-            init_player(s, new_vec(check_point % s->map.width + 0.5, check_point / s->map.width + 0.5), &flag);
-        check_point++;
-    }
-    if (!flag)
-        ft_strexit("ERROR : Pasing player position error(init_map)");
+	init_map_parsing(s, fd, line, check);
+	flag = 0;
+	i = -1;
+	while (++i < s->map.w * s->map.h)
+	{
+		check_map(s, new_ivec(i % s->map.w, i / s->map.w));
+		if (ft_strchr("NSWE", s->map.data[i / s->map.w][i % s->map.w]))
+			init_player(s,
+				new_vec(i % s->map.w + 0.5, i / s->map.w + 0.5), &flag);
+	}
+	if (!flag)
+		exit_cub3d_msg(s, "parsing player postion error");
 }

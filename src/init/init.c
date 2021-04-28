@@ -3,36 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 16:40:28 by napark            #+#    #+#             */
-/*   Updated: 2021/04/24 11:42:30 by napark           ###   ########.fr       */
+/*   Created: 2021/04/24 15:31:32 by napark            #+#    #+#             */
+/*   Updated: 2021/04/28 17:15:23 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cube3d.h>
+#include <cub3d.h>
 
-static void     init_window(t_cube3d *s, int save)
+static void	init_window(t_cube3d *s, int flag)
 {
-    if (!save)
-    {
-        if (!(s->win = mlx_new_window(s->mlx, s->timg.width, s->timg.height, CUBE3D_TITLE)))
-            ft_strexit("ERROR : s, fail mlx_new_window(init_window)");
-    }
-    if (!(s->timg.ptr = mlx_new_image(s->mlx, s->timg.width, s->timg.height)))
-        ft_strexit("ERROR : fail mlx_new_image(init_window)");
-    if (!(s->timg.data = (t_color *)mlx_get_data_addr(s->timg.ptr, &s->timg.bpp, &s->timg.size_l, &s->timg.endian)))
-        ft_strexit("ERROR : fail mlx_get_data_addr(init_window)");
-    s->timg.line = s->timg.size_l / (s->timg.bpp / 8);
-} 
+	if (!flag)
+	{
+		if (!(s->win =
+			mlx_new_window(s->mlx, s->v.width, s->v.height, CUBE3D_TITLE)))
+			exit_cub3d_msg(s, "ERROR : mlx_new_window(init_window)");
+	}
+	if (!(s->v.ptr = mlx_new_image(s->mlx, s->v.width, s->v.height)))
+		exit_cub3d_msg(s, "ERROR : mlx_new_image(init_window)");
+	if (!(s->v.data = (t_color *)mlx_get_data_addr(
+		s->v.ptr, &s->v.bpp, &s->v.size_l, &s->v.endian)))
+		exit_cub3d_msg(s, "ERROR : mlx_get_data_addr(init_window)");
+	s->v.line = s->v.size_l / (s->v.bpp / 8);
+}
 
-void    init(t_cube3d   *s, char *argv, int save)
+void		init(t_cube3d *s, char *path, int flag)
 {
-    (!(s->mlx = mlx_init()) ? ft_strexit("ERROR : fail mlx_init()") : 0);
-    mlx_get_screen_size(s->mlx, &s->tw.width, &s->tw.height);
-    parse(s, argv);
-    init_window(s, save);
-    s->num_rays = s->timg.width / WALL_STRIP_WIDTH;
-    if (!(s->rays = malloc(sizeof(t_rays) * s->num_rays)))
-        ft_strexit("ERROR : ray malloc failed(init_window)");
+	(!(s->mlx = mlx_init()) ? exit_cub3d_msg(s, "ERROR : mlx_init(init)") : 0);
+	mlx_get_screen_size(s->mlx, &s->v.width, &s->v.height);
+	init_parse(s, path);
+	init_window(s, flag);
+	s->num_rays = s->v.width / WALL_STRIP_WIDTH;
+	if (!(s->rays = malloc(sizeof(t_ray) * s->num_rays)))
+		exit_cub3d_msg(s, "ERROR : allocate memory malloc fail(init)");
 }
