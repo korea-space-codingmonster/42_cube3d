@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_resolution.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: napark <napark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: napark <napark@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 16:10:56 by napark            #+#    #+#             */
-/*   Updated: 2021/04/28 17:15:25 by napark           ###   ########.fr       */
+/*   Updated: 2021/04/29 12:27:50 by napark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-static int	itoa(t_cube3d *s, char *word)
+static int	resolution_itoa(t_cube3d *s, char *word)
 {
 	int		len;
 	int		n;
@@ -37,8 +37,8 @@ void		init_resolution(t_cube3d *s, char **split)
 	if (((g_parse_check >> R) & 1) == 1)
 		exit_cub3d_msg(s, "ERROR : already parsing(init_resolution)");
 	g_parse_check |= 1 << R;
-	resolution.x = itoa(s, split[0]);
-	resolution.y = itoa(s, split[1]);
+	resolution.x = resolution_itoa(s, split[0]);
+	resolution.y = resolution_itoa(s, split[1]);
 	if (resolution.x < s->v.width)
 		s->v.width = resolution.x;
 	if (resolution.y < s->v.height)
